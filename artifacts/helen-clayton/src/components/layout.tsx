@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
+import { ApcCertifiedBadge } from "@/components/apc-certified-badge";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,8 +61,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Full screen overlay menu */}
       <div 
         ref={menuRef}
-        className="fixed inset-0 z-[60] bg-primary text-primary-foreground flex flex-col items-center justify-center"
-        style={{ clipPath: "circle(0% at calc(100% - 3rem) 3rem)" }}
+        className="fixed inset-0 z-[60] text-primary-foreground flex flex-col items-center justify-center"
+        style={{ background: 'linear-gradient(135deg, hsl(0 68% 35%) 0%, hsl(350 55% 25%) 60%, hsl(0 50% 20%) 100%)', clipPath: "circle(0% at calc(100% - 3rem) 3rem)" }}
       >
         <button 
           onClick={() => setIsMenuOpen(false)}
@@ -90,24 +91,156 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      <footer className="bg-foreground text-background py-16 px-6 md:px-12 mt-24 clip-diagonal relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="font-serif text-4xl md:text-5xl mb-6 text-secondary">Celebrating Every Life Moment</h3>
-            <p className="text-xl mb-2 font-serif italic">From first vows to final farewells</p>
-            <p className="text-sm opacity-80 mb-6">Weddings - Vow Renewals - Funerals - Memorials - Ashes Ceremonies</p>
-            
-            <div className="inline-block border-2 border-secondary p-4 mt-4 bg-primary text-primary-foreground">
-              <p className="font-bold tracking-wider text-sm uppercase">APC UK Accredited Celebrant | Obitus | DBS Checked</p>
+      <section
+        className="relative mt-24 overflow-hidden"
+        aria-labelledby="apc-trust-heading"
+      >
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_40%,hsl(38_40%_88%/0.7),transparent_55%),radial-gradient(ellipse_70%_50%_at_90%_60%,hsl(350_25%_88%/0.45),transparent_50%),linear-gradient(165deg,hsl(38 32% 93%) 0%,hsl(35 28% 89%) 45%,hsl(220 18% 91%) 100%)]"
+          aria-hidden
+        />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent" aria-hidden />
+        <div className="absolute -right-24 top-1/2 h-[min(28rem,70vw)] w-[min(28rem,70vw)] -translate-y-1/2 rounded-full bg-primary/[0.07] blur-3xl pointer-events-none" aria-hidden />
+        <div className="absolute -left-20 bottom-0 h-48 w-48 rounded-full bg-secondary/[0.12] blur-2xl pointer-events-none" aria-hidden />
+
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-[4.5rem]">
+          <div className="grid md:grid-cols-12 gap-12 md:gap-8 lg:gap-12 items-center">
+            <div className="md:col-span-5 lg:col-span-4 flex justify-center md:justify-end md:pr-4">
+              <div className="relative">
+                <div
+                  className="absolute inset-[-6px] rounded-full opacity-60 bg-[conic-gradient(from_180deg_at_50%_50%,hsl(var(--secondary))_0deg,transparent_120deg,hsl(var(--primary))_240deg,transparent_360deg)] blur-[2px]"
+                  aria-hidden
+                />
+                <div className="relative flex items-center justify-center rounded-full bg-gradient-to-b from-background/90 to-background/60 p-3 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)] ring-1 ring-secondary/25">
+                  <ApcCertifiedBadge size="lg" className="rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-7 lg:col-span-8 md:border-l md:border-secondary/25 md:pl-10 lg:pl-14 text-center md:text-left">
+              <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.35em] text-primary/90 font-bold mb-4">
+                Trust &amp; accreditation
+              </p>
+              <h2
+                id="apc-trust-heading"
+                className="font-serif text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl italic text-foreground leading-[1.12] mb-5"
+              >
+                APC Certified Celebrant
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl md:max-w-none">
+                Professionally trained and accredited through the Association of Professional Celebrants — so you can book with confidence.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
+                <span className="hidden md:block h-px w-16 bg-gradient-to-r from-secondary to-transparent shrink-0" aria-hidden />
+                <p className="text-sm font-serif italic text-primary/90">
+                  Held to professional standards you can rely on
+                </p>
+              </div>
             </div>
           </div>
-          
-          <div className="md:text-right flex flex-col justify-end">
-            <p className="text-lg font-bold">Contact Helen</p>
-            <a href="tel:07786789331" className="text-2xl hover:text-secondary transition-colors">07786 789331</a>
-            <a href="mailto:contact@hccelebrancy.co.uk" className="text-xl hover:text-secondary transition-colors">contact@hccelebrancy.co.uk</a>
-            <p className="mt-4 text-sm opacity-80">Based in Poole, Dorset</p>
+        </div>
+
+        <div
+          className="relative h-px w-full bg-gradient-to-r from-transparent via-foreground/10 to-transparent"
+          aria-hidden
+        />
+        <div
+          className="h-6 w-full bg-gradient-to-b from-transparent to-[hsl(220_20%_10%)]/8"
+          aria-hidden
+        />
+      </section>
+
+      <footer
+        className="relative mt-0 overflow-hidden rounded-t-[2rem] md:rounded-t-[2.75rem] px-6 md:px-12 pt-16 pb-10 md:pt-20 md:pb-12 text-background"
+        style={{
+          background:
+            "linear-gradient(165deg, hsl(220 22% 9%) 0%, hsl(350 18% 11%) 42%, hsl(220 20% 7%) 100%)",
+        }}
+      >
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/45 to-transparent"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -top-32 left-1/2 h-40 w-[min(90%,42rem)] -translate-x-1/2 rounded-full bg-secondary/[0.12] blur-3xl"
+          aria-hidden
+        />
+
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-12 lg:items-start">
+            <div className="space-y-8 lg:col-span-7">
+              <header className="space-y-3">
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.32em] text-secondary/90">
+                  Helen Clayton Celebrancy
+                </p>
+                <h3 className="font-serif text-4xl italic leading-[1.08] text-secondary md:text-5xl lg:text-[3.15rem]">
+                  Celebrating Every Life Moment
+                </h3>
+                <p className="max-w-xl text-lg font-serif italic text-background/90 md:text-xl">
+                  From first vows to final farewells
+                </p>
+              </header>
+
+              <ul className="flex flex-wrap gap-2">
+                {[
+                  "Weddings",
+                  "Vow renewals",
+                  "Funerals",
+                  "Memorials",
+                  "Ashes ceremonies",
+                ].map((label) => (
+                  <li key={label}>
+                    <span className="inline-block rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium tracking-wide text-background/85">
+                      {label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:gap-6">
+                <div className="flex shrink-0 justify-center sm:justify-start">
+                  <div className="rounded-full bg-black/30 p-2 ring-1 ring-white/10">
+                    <ApcCertifiedBadge size="md" />
+                  </div>
+                </div>
+                <div className="min-w-0 flex-1 space-y-1.5 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 backdrop-blur-sm">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.28em] text-secondary/85">
+                    Credentials
+                  </p>
+                  <p className="text-sm leading-relaxed text-background/90">
+                    APC UK Accredited Celebrant · Obitus · DBS checked
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-10">
+              <p className="mb-5 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-secondary/85">
+                Contact
+              </p>
+              <div className="space-y-1">
+                <a
+                  href="tel:07786789331"
+                  className="block font-serif text-3xl italic tracking-tight text-background transition-colors hover:text-secondary md:text-[2.15rem]"
+                >
+                  07786 789331
+                </a>
+                <a
+                  href="mailto:contact@hccelebrancy.co.uk"
+                  className="inline-block text-base text-background/80 underline-offset-4 transition-colors hover:text-secondary hover:underline md:text-lg"
+                >
+                  contact@hccelebrancy.co.uk
+                </a>
+              </div>
+              <p className="mt-8 max-w-sm text-sm leading-relaxed text-background/55">
+                Based in Poole, Dorset — available in surrounding locations
+              </p>
+            </div>
           </div>
+
+          <p className="mt-14 border-t border-white/10 pt-8 text-center text-[0.7rem] uppercase tracking-[0.22em] text-background/45">
+            Website made by the Academy of Professional Celebrants
+          </p>
         </div>
       </footer>
     </div>

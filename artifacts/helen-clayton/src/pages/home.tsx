@@ -5,10 +5,22 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "wouter";
 import weddingOutdoor1 from "@assets/stock_images/wedding_outdoor_1.jpg";
 import weddingOutdoor2 from "@assets/stock_images/wedding_outdoor_2.jpg";
-import weddingCouple1 from "@assets/stock_images/wedding_couple_1.jpg";
 import memorialGarden1 from "@assets/stock_images/memorial_garden_1.jpg";
+import memorialGarden2 from "@assets/stock_images/memorial_garden_2.jpg";
+import weddingCouple2 from "@assets/stock_images/wedding_couple_2.jpg";
+import funeralFlowers from "@assets/stock_images/funeral_flowers.jpg";
+import vowRenewal from "@assets/stock_images/vow_renewal.jpg";
 import coastSunset from "@assets/stock_images/coast_sunset.jpg";
 import weddingRings from "@assets/stock_images/wedding_rings.jpg";
+import serviceFuneralPlanning from "@assets/stock_images/service_funeral_planning.jpg";
+import serviceEulogyWriting from "@assets/stock_images/service_eulogy_writing.jpg";
+import serviceScatteringAshes from "@assets/stock_images/service_scattering_ashes.jpg";
+import serviceMemorial from "@assets/stock_images/service_memorial.jpg";
+import serviceWedding from "@assets/stock_images/service_wedding.jpg";
+import serviceVowRenewal from "@assets/stock_images/service_vow_renewal.jpg";
+import crematoriumImg from "@assets/stock_images/crematorium.jpg";
+import helenPortrait1 from "@assets/stock_images/helen_portrait_1.jpg";
+import helenPortrait2 from "@assets/stock_images/helen_portrait_2.jpg";
 import weddingVideoSrc from "@assets/generated_videos/wedding_ceremony.mp4";
 import peacefulGardenSrc from "@assets/generated_videos/peaceful_garden.mp4";
 
@@ -89,8 +101,9 @@ export function Home() {
       ease: "power4.out"
     });
 
-    // Parallax on interior images
+    // Parallax on interior images (gentler on portraits so heads stay in frame)
     gsap.utils.toArray(".parallax-img").forEach((img: any) => {
+      const keepHeads = img.classList?.contains("parallax-img--keep-heads");
       gsap.to(img, {
         scrollTrigger: {
           trigger: img.closest(".parallax-wrap"),
@@ -98,7 +111,7 @@ export function Home() {
           end: "bottom top",
           scrub: 1.5,
         },
-        y: "-20%",
+        y: keepHeads ? "-6%" : "-20%",
         ease: "none"
       });
     });
@@ -171,7 +184,7 @@ export function Home() {
             Family Celebrant
           </h2>
           <p className="text-xl md:text-3xl max-w-2xl hero-sub mb-12 border-l-4 border-secondary pl-6 opacity-90">
-            Meaningful Ceremonies Crafted Just for You. Helping You Create a Ceremony Full of Meaning and Heart.
+            Meaningful Ceremonies Crafted Just for You
           </p>
           <div className="hero-cta flex gap-4 flex-wrap">
             <Link href="/contact" className="inline-block bg-secondary text-secondary-foreground font-bold text-xl px-10 py-5 hover:bg-white hover:text-foreground transition-colors" data-testid="link-home-contact">
@@ -193,7 +206,16 @@ export function Home() {
       {/* HORIZONTAL SCROLLING IMAGE STRIP */}
       <section className="strip-section py-0 overflow-hidden bg-foreground" aria-hidden="true">
         <div className="strip-track flex gap-4 w-[200%]" style={{ whiteSpace: 'nowrap' }}>
-          {[weddingOutdoor1, weddingCouple1, memorialGarden1, coastSunset, weddingRings, weddingOutdoor2, weddingCouple1, memorialGarden1].map((src, i) => (
+          {[
+            memorialGarden2,
+            weddingCouple2,
+            funeralFlowers,
+            vowRenewal,
+            helenPortrait1,
+            helenPortrait2,
+            coastSunset,
+            memorialGarden1,
+          ].map((src, i) => (
             <div key={i} className="h-[35vw] w-[35vw] shrink-0 overflow-hidden inline-block">
               <img src={src} alt="" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
             </div>
@@ -201,22 +223,51 @@ export function Home() {
         </div>
       </section>
 
+      {/* HELPING YOU — Two-panel section */}
+      <section className="py-28 px-6 md:px-12 relative z-20" style={{ background: 'linear-gradient(180deg, hsl(38 30% 94%) 0%, hsl(35 40% 88%) 50%, hsl(38 30% 94%) 100%)' }}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-serif font-bold italic text-foreground mb-16 text-center">
+            Helping You Create a Ceremony Full of Meaning and Heart
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="group relative overflow-hidden">
+              <img src={weddingOutdoor1} alt="Wedding ceremony" className="w-full h-[50vh] object-cover" />
+              <div className="absolute inset-0 bg-foreground/50 group-hover:bg-primary/60 transition-colors duration-500" />
+              <div className="absolute inset-0 flex items-end p-10">
+                <p className="text-xl md:text-2xl text-white font-serif italic leading-relaxed">
+                  As you plan your special day, it's important to feel confident you're in safe hands, with a ceremony created entirely around you.
+                </p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden">
+              <img src={crematoriumImg} alt="Bournemouth Crematorium" className="w-full h-[50vh] object-cover" />
+              <div className="absolute inset-0 bg-foreground/50 group-hover:bg-primary/60 transition-colors duration-500" />
+              <div className="absolute inset-0 flex items-end p-10">
+                <p className="text-xl md:text-2xl text-white font-serif italic leading-relaxed">
+                  At a difficult time, I will support you in planning a bespoke, personal funeral ceremony created with warmth, compassion, and attention to every detail.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES — Image-heavy grid */}
-      <section className="py-28 px-6 md:px-12 bg-background relative z-20">
+      <section className="py-28 px-6 md:px-12 relative z-20" style={{ background: 'linear-gradient(135deg, hsl(40 20% 98%) 0%, hsl(35 35% 92%) 40%, hsl(0 40% 96%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-6xl md:text-9xl font-serif font-bold italic text-foreground mb-4">
-            Services
+            My Services
           </h2>
-          <p className="text-xl text-muted-foreground mb-20 max-w-lg">Individually crafted, inclusive and creative ceremonies.</p>
+          <p className="text-xl text-muted-foreground mb-20 max-w-lg">Individually crafted, inclusive and creative ceremonies</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-card-border">
             {[
-              { title: "Funeral Planning", link: "/funerals", img: memorialGarden1, tag: "With compassion & dignity" },
-              { title: "Eulogy Writing", link: "/funerals", img: coastSunset, tag: "Every life, a story" },
-              { title: "Scattering of Ashes", link: "/funerals", img: coastSunset, tag: "A quiet moment of peace" },
-              { title: "Memorial Services", link: "/funerals", img: memorialGarden1, tag: "Gathering to remember" },
-              { title: "Wedding Ceremonies", link: "/weddings", img: weddingOutdoor1, tag: "Your love, your day" },
-              { title: "Vow Renewal", link: "/weddings", img: weddingCouple1, tag: "Celebrating the journey" }
+              { title: "Funeral Planning", link: "/funerals", img: serviceFuneralPlanning, tag: "With compassion & dignity" },
+              { title: "Eulogy Writing", link: "/funerals", img: serviceEulogyWriting, tag: "Every life, a story" },
+              { title: "Scattering of Ashes", link: "/funerals", img: serviceScatteringAshes, tag: "A quiet moment of peace" },
+              { title: "Memorial Services", link: "/funerals", img: serviceMemorial, tag: "Gathering to remember" },
+              { title: "Wedding Ceremonies", link: "/weddings", img: serviceWedding, tag: "Your love, your day" },
+              { title: "Vow Renewal", link: "/weddings", img: serviceVowRenewal, tag: "Celebrating the journey" }
             ].map((service, i) => (
               <Link
                 key={i}
@@ -241,17 +292,17 @@ export function Home() {
         </div>
       </section>
 
-      {/* FULL-BLEED SPLIT — Outdoors wedding + Why Choose Me */}
+      {/* FULL-BLEED SPLIT — Helen portrait + Why Choose Me */}
       <section className="fullbleed-section relative min-h-[80vh] overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 h-full min-h-[80vh]">
-          {/* Left — image */}
+          {/* Left — Helen portrait */}
           <div className="parallax-wrap relative overflow-hidden min-h-[50vh] md:min-h-0">
             <img
-              src={weddingOutdoor2}
-              alt="Wedding ceremony"
-              className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+              src={helenPortrait1}
+              alt="Helen Clayton, Family Celebrant"
+              className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-0 w-full h-[118%] object-cover object-top"
             />
-            <div className="absolute inset-0 bg-primary/20" />
+            <div className="absolute inset-0 bg-primary/10" />
           </div>
           {/* Right — text */}
           <div className="bg-foreground text-background flex flex-col justify-center px-12 md:px-20 py-24">
@@ -259,13 +310,16 @@ export function Home() {
               Why Choose Me
             </h2>
             <p className="text-xl mb-6 opacity-90 leading-relaxed">
-              Choosing a celebrant is a particularly personal decision, and it's important that you feel comfortable, supported, and truly listened to.
+              Choosing a celebrant is a particularly personal decision, and it is important that you feel comfortable, supported, and truly listened to.
             </p>
-            <p className="text-xl mb-8 opacity-80 leading-relaxed">
-              With a background in teaching and cancer care, I have spent many years supporting people through important moments in their lives — with compassion, patience, and understanding.
+            <p className="text-xl mb-6 opacity-80 leading-relaxed">
+              I will bring a calm, caring approach to your ceremony, taking the time to understand what matters most to you. With a background in teaching and cancer care, I have spent many years supporting people through important moments in their lives. I have always done so with compassion, patience, and understanding.
+            </p>
+            <p className="text-xl mb-6 opacity-80 leading-relaxed">
+              Every ceremony I create is written from scratch, each one is bespoke. I thoughtfully tailor it to reflect your story, your wishes, and the people at the heart of it. There aren't any templates, just me and you discovering and creating something meaningful, personal, and true to you.
             </p>
             <p className="text-xl mb-12 opacity-80 leading-relaxed">
-              Every ceremony I create is written from scratch. No templates — just you and me discovering and creating something meaningful.
+              My role is to gently guide you through the whole process, making sure everything feels as easy and as stress-free as possible. Whether you are celebrating a joyful occasion or saying goodbye to a loved one, I will be there with warmth, care, and a steady, reassuring presence.
             </p>
             <Link href="/meet-helen" className="self-start border border-secondary text-secondary px-8 py-4 hover:bg-secondary hover:text-foreground transition-colors text-lg font-bold" data-testid="link-why-meet-helen">
               Get to Know Helen
@@ -275,7 +329,7 @@ export function Home() {
       </section>
 
       {/* TILTED QUOTE + IMAGE */}
-      <section className="py-32 px-6 md:px-12 bg-background overflow-hidden">
+      <section className="py-32 px-6 md:px-12 overflow-hidden" style={{ background: 'linear-gradient(160deg, hsl(38 30% 94%) 0%, hsl(35 45% 86%) 100%)' }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
           {/* Quote card */}
           <div className="md:w-1/2 relative">
@@ -289,12 +343,12 @@ export function Home() {
             <div className="absolute inset-0 bg-secondary translate-x-5 translate-y-5 -rotate-2 z-10" />
           </div>
 
-          {/* Image panel */}
+          {/* Image panel — Helen outdoors */}
           <div className="md:w-1/2 parallax-wrap relative h-[60vh] overflow-hidden">
             <img
-              src={weddingRings}
-              alt="Wedding rings"
-              className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+              src={helenPortrait2}
+              alt="Helen Clayton outdoors"
+              className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-0 w-full h-[118%] object-cover object-top"
             />
           </div>
         </div>

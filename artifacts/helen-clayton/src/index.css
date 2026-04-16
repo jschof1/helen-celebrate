@@ -76,14 +76,13 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  /* New Theme Variables */
-  --background: 40 20% 98%;
+  --background: 38 28% 96%;
   --foreground: 220 20% 8%;
-  --border: 35 40% 62%; /* secondary as border */
+  --border: 35 40% 62%;
   
-  --card: 38 30% 94%;
+  --card: 36 32% 92%;
   --card-foreground: 220 20% 8%;
-  --card-border: 35 40% 62%;
+  --card-border: 35 35% 72%;
   
   --sidebar: 40 20% 98%;
   --sidebar-foreground: 220 20% 8%;
@@ -104,7 +103,7 @@
   --secondary: 35 40% 62%;
   --secondary-foreground: 220 20% 8%;
   
-  --muted: 38 30% 94%;
+  --muted: 36 28% 91%;
   --muted-foreground: 220 10% 40%;
   
   --accent: 350 55% 28%;

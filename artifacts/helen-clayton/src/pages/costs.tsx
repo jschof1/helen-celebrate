@@ -85,7 +85,7 @@ export function Costs() {
       </section>
 
       {/* COST CARDS */}
-      <section className="py-20 px-6 md:px-16">
+      <section className="py-20 px-6 md:px-16" style={{ background: 'linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 35% 92%) 50%, hsl(38 30% 94%) 100%)' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 border border-card-border">
 
           {/* Funerals */}
@@ -99,19 +99,22 @@ export function Costs() {
             </div>
             <div className="relative z-10 p-10 md:p-14 border-r border-card-border">
               <h2 className="text-4xl font-serif text-foreground mb-4">Funerals</h2>
-              <div className="text-8xl font-black text-primary mb-8 font-serif leading-none">
+              <div className="text-8xl font-black text-primary mb-4 font-serif leading-none">
                 £<span className="price-num" data-val="250">0</span>
               </div>
-              <p className="text-muted-foreground mb-8 text-sm italic">Includes everything below, no hidden costs. Travel within 30 miles of Poole.</p>
-              <ul className="space-y-4 text-muted-foreground">
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                At such an important and often difficult time, my role is to support you with care, understanding, and gentle guidance. I will take the time to listen, ensuring the ceremony truly reflects your loved one and feels right for you and your family.
+              </p>
+              <p className="text-sm font-bold text-foreground mb-4">My service includes:</p>
+              <ul className="space-y-4 text-muted-foreground mb-8">
                 {[
-                  "All communication by phone and email throughout",
-                  "A personal visit to meet you and your family",
-                  "Carefully writing a bespoke funeral script",
-                  "Sharing the script with you for revisions",
-                  "Guidance on readings, poetry, and music",
-                  "Conducting the funeral service with warmth and professionalism",
-                  "A keepsake copy of the final script"
+                  "All communication by phone and email, so you feel supported throughout",
+                  "A personal visit to meet with you and your family, giving us time to talk, share memories, and begin shaping a meaningful ceremony",
+                  "Carefully writing a bespoke funeral script that reflects your loved one's life and personality",
+                  "Sharing the script with you and making any changes, so you feel completely comfortable and happy with every word",
+                  "Gentle guidance in choosing readings, poetry, and music that feel appropriate and personal",
+                  "Conducting the funeral service on the day with warmth, professionalism, and care",
+                  "Providing you with a keepsake copy of the final script to treasure"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-2 h-2 mt-2 bg-secondary rounded-full shrink-0" />
@@ -119,6 +122,8 @@ export function Costs() {
                   </li>
                 ))}
               </ul>
+              <p className="text-sm text-muted-foreground italic">This includes everything outlined above, with no hidden costs.</p>
+              <p className="text-sm text-muted-foreground italic">Travel for meetings and the ceremony is included within a 30-mile radius. If the location is further afield, this can be discussed and agreed in advance.</p>
             </div>
           </div>
 
@@ -130,19 +135,22 @@ export function Costs() {
             <div className="absolute -top-4 -right-4 bg-secondary text-foreground text-sm font-bold px-6 py-2 rotate-6 z-20">Most Popular</div>
             <div className="relative z-10 p-10 md:p-14">
               <h2 className="text-4xl font-serif mb-4">Weddings</h2>
-              <div className="text-8xl font-black text-secondary mb-8 font-serif leading-none">
+              <div className="text-8xl font-black text-secondary mb-4 font-serif leading-none">
                 £<span className="price-num" data-val="650">0</span>
               </div>
-              <p className="opacity-70 mb-8 text-sm italic">Includes everything below. Travel within 30 miles of Poole.</p>
-              <ul className="space-y-4 opacity-90">
+              <p className="opacity-80 mb-8 leading-relaxed">
+                My fee for a wedding ceremony is £650, which includes all the time, care, and attention needed to create a truly personal and meaningful celebration.
+              </p>
+              <p className="text-sm font-bold mb-4">My service includes:</p>
+              <ul className="space-y-4 opacity-90 mb-8">
                 {[
-                  "All communication by phone and email throughout",
-                  "Two face-to-face meetings to gather everything needed",
-                  "Writing a bespoke ceremony script, refined until perfect",
-                  "Guidance on music, readings, rituals and poems",
-                  "Liaising with your venue and suppliers",
-                  "Conducting your wedding ceremony on the day",
-                  "A beautiful keepsake copy of your ceremony script"
+                  "All communication by phone and email, so you feel supported throughout",
+                  "Two face-to-face meetings to get to know you both and gather everything needed to create your unique ceremony and love story",
+                  "Writing a bespoke ceremony script, shared with you and refined as many times as needed until it is exactly right for you and your special day",
+                  "Gentle guidance and ideas for music, readings, rituals and poems to include in your ceremony",
+                  "Liaising with anyone else involved to ensure everything runs smoothly",
+                  "Conducting your wedding ceremony on the day with warmth, confidence, and care",
+                  "Providing a keepsake copy of your final ceremony script for you to treasure"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-2 h-2 mt-2 bg-white rounded-full shrink-0" />
@@ -150,6 +158,8 @@ export function Costs() {
                   </li>
                 ))}
               </ul>
+              <p className="text-sm opacity-70 italic">Travel for meetings and the ceremony within a 30-mile radius. If the location is further afield, this can be discussed and agreed in advance.</p>
+              <p className="text-sm opacity-70 italic mt-2">It is my aim to make the whole process feel relaxed, enjoyable, and completely centred around you so your ceremony is a true reflection of you, your story and most importantly your love.</p>
             </div>
           </div>
 
@@ -161,7 +171,7 @@ export function Costs() {
             <div className="relative z-10 p-10 md:p-14 border-r border-card-border">
               <h2 className="text-4xl font-serif text-foreground mb-4">Memorial Services</h2>
               <div className="text-6xl font-bold text-foreground mb-6 font-serif">
-                From £<span className="price-num text-primary" data-val="200">0</span>
+                Prices from £<span className="price-num text-primary" data-val="200">0</span>
               </div>
               <p className="text-muted-foreground leading-relaxed">Tailored to your specific requirements and location. Get in touch to discuss your needs.</p>
             </div>
@@ -173,11 +183,11 @@ export function Costs() {
               <img src={coastSunset} alt="Coast" className="w-full h-full object-cover opacity-25" />
             </div>
             <div className="relative z-10 p-10 md:p-14">
-              <h2 className="text-4xl font-serif text-secondary mb-4">Scattering of Ashes</h2>
+              <h2 className="text-4xl font-serif text-secondary mb-4">Scattering or Internment of Ashes</h2>
               <div className="text-6xl font-bold mb-6 font-serif">
                 From £<span className="price-num text-secondary" data-val="80">0</span>
               </div>
-              <p className="opacity-80 leading-relaxed">A short, meaningful service for a quiet moment of remembrance, wherever feels right.</p>
+              <p className="opacity-80 leading-relaxed">A meaningful moment of remembrance, wherever feels right for you and your loved ones.</p>
             </div>
           </div>
 

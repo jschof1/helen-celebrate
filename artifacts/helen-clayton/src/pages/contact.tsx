@@ -5,6 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import helenPortrait1 from "@assets/stock_images/helen_portrait_1.jpg";
 import weddingCouple1 from "@assets/stock_images/wedding_couple_1.jpg";
 import dorsetCoastSrc from "@assets/generated_videos/dorset_coast.mp4";
+import { ApcCertifiedBadge } from "@/components/apc-certified-badge";
 
 export function Contact() {
   const container = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ export function Contact() {
       </section>
 
       {/* MAIN CONTACT — Split */}
-      <section className="py-20 px-6 md:px-0">
+      <section className="py-20 px-6 md:px-0" style={{ background: 'linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 40% 90%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
@@ -109,10 +110,13 @@ export function Contact() {
                   <p className="text-xl text-background/80">Based in Poole, Dorset</p>
                 </div>
 
-                <div className="contact-detail">
-                  <p className="text-sm uppercase tracking-widest text-background/50 font-bold mb-2">Credentials</p>
-                  <p className="text-background/80 font-bold">APC UK Accredited Celebrant</p>
-                  <p className="text-background/80">Obitus · DBS Checked</p>
+                <div className="contact-detail flex gap-4 items-start">
+                  <ApcCertifiedBadge size="sm" className="shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-sm uppercase tracking-widest text-background/50 font-bold mb-2">Credentials</p>
+                    <p className="text-background/80 font-bold">APC UK Accredited Celebrant</p>
+                    <p className="text-background/80">Obitus · DBS Checked</p>
+                  </div>
                 </div>
 
                 {/* Small second image */}

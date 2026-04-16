@@ -46,8 +46,9 @@ export function Weddings() {
       });
     });
 
-    // Parallax on images
+    // Parallax on images (gentler on portraits so faces stay in frame)
     gsap.utils.toArray(".parallax-img").forEach((img: any) => {
+      const keepHeads = img.classList?.contains("parallax-img--keep-heads");
       gsap.to(img, {
         scrollTrigger: {
           trigger: img.closest(".parallax-wrap"),
@@ -55,7 +56,7 @@ export function Weddings() {
           end: "bottom top",
           scrub: 1.5,
         },
-        y: "-18%",
+        y: keepHeads ? "-6%" : "-18%",
         ease: "none"
       });
     });
@@ -127,7 +128,7 @@ export function Weddings() {
       </section>
 
       {/* WEDDINGS section */}
-      <section className="py-24 px-6 md:px-16 bg-background">
+      <section className="py-24 px-6 md:px-16" style={{ background: 'linear-gradient(180deg, hsl(38 30% 94%) 0%, hsl(35 40% 88%) 50%, hsl(40 20% 96%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-16 items-center">
             <div className="md:col-span-7">
@@ -137,10 +138,19 @@ export function Weddings() {
                   I truly believe every couple deserves a wedding ceremony that reflects their own personal journey and the love they share.
                 </p>
                 <p className="text-xl leading-relaxed text-foreground mb-6">
-                  My role as your celebrant is to bring that story to life by creating a ceremony that feels joyful, meaningful, and completely about you. I will take the time to get to know you both — from how you met to all the little things that make your relationship special.
+                  My role as your celebrant is to bring that story to life by creating a ceremony that feels joyful, meaningful, and completely about you and the love you share. I will take the time to get to know you both, from how you met to all the little things that make your relationship special. This will make your ceremony personal, relaxed and full of heart.
                 </p>
-                <p className="text-xl leading-relaxed text-foreground">
-                  From our first chat to the moment you say I do, I will be there to guide and support you — ensuring you can enjoy every moment, knowing your ceremony is in safe hands.
+                <p className="text-xl leading-relaxed text-foreground mb-6">
+                  Together, we will create something unforgettable and full of memories to treasure for a lifetime!
+                </p>
+                <p className="text-xl leading-relaxed text-foreground mb-6">
+                  Whether you are dreaming of something romantic, fun, traditional or something a little different. I will work closely with you to ensure every second of your special day reflects your dreams and who you are as a couple.
+                </p>
+                <p className="text-xl leading-relaxed text-foreground mb-6">
+                  From our first chat to the moment you say I do, I will be there to guide and support you. I will ensure you are able to enjoy every moment, knowing your ceremony is in safe hands.
+                </p>
+                <p className="text-xl leading-relaxed text-foreground font-serif italic">
+                  The result? A beautiful, love filled celebration that you and your guests will remember forever.
                 </p>
               </div>
             </div>
@@ -158,7 +168,7 @@ export function Weddings() {
       </section>
 
       {/* VOW RENEWALS section */}
-      <section className="py-24 px-6 md:px-16 bg-primary text-primary-foreground">
+      <section className="py-24 px-6 md:px-16 text-primary-foreground" style={{ background: 'linear-gradient(135deg, hsl(0 68% 35%) 0%, hsl(350 55% 28%) 60%, hsl(0 60% 25%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-16 items-center">
             <div className="md:col-span-5 wedding-card">
@@ -177,10 +187,16 @@ export function Weddings() {
                   Renewing your vows is a beautiful way to celebrate your journey as a couple. It honours the love you have shared and the life you have built together.
                 </p>
                 <p className="text-xl leading-relaxed opacity-90 mb-6">
-                  Whether you are marking a special anniversary, overcoming challenges, or simply wanting to say "I still do" — a vow renewal is a meaningful and happy occasion.
+                  Whether you are marking a special anniversary, overcoming challenges, or simply wanting to say 'I still do' a vow renewal is a meaningful and happy occasion.
+                </p>
+                <p className="text-xl leading-relaxed opacity-90 mb-6">
+                  As your celebrant, I will take the time to get to know your story and where it all began. I will want to hear about the moments that have shaped your journey and what your relationship means today. Together, we will create a ceremony that feels relaxed, heartfelt, and truly reflective of you as a couple.
+                </p>
+                <p className="text-xl leading-relaxed opacity-90 mb-6">
+                  Whether you would like something intimate and simple or a joyful celebration surrounded by family and friends, your ceremony will be thoughtfully crafted around you.
                 </p>
                 <p className="text-xl leading-relaxed opacity-90 mb-4">
-                  Whether you would like something intimate and simple or a joyful celebration surrounded by family and friends, your ceremony will be thoughtfully crafted around you.
+                  I am here to guide and support you every step of the way, creating a warm and memorable experience. One that celebrates your love, your commitment, and everything that is still to come.
                 </p>
                 <p className="text-2xl font-serif italic text-secondary mt-8">
                   This is a perfect way to Celebrate Your Journey Together.
@@ -192,7 +208,7 @@ export function Weddings() {
       </section>
 
       {/* RINGS + LEGAL SIDE */}
-      <section className="py-24 px-6 md:px-16 bg-card">
+      <section className="py-24 px-6 md:px-16" style={{ background: 'linear-gradient(160deg, hsl(38 30% 94%) 0%, hsl(35 45% 86%) 50%, hsl(0 20% 93%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="wedding-card">
@@ -203,10 +219,19 @@ export function Weddings() {
               <div className="bg-secondary text-secondary-foreground p-10 border-l-8 border-foreground mt-0">
                 <h3 className="text-3xl font-serif font-bold mb-6">The Legal Side of Your Wedding</h3>
                 <p className="text-lg leading-relaxed mb-4">
-                  In the UK, the legal part of a wedding is carried out by a registrar or religious official. Many couples complete this at a registry office — a smaller, straightforward moment.
+                  In the UK, the legal part of a wedding is carried out by a registrar or religious official, and must take place in an approved setting. This is simply the legal requirement and it's often a much smaller, more straightforward moment, usually involving just the couple and two witnesses.
+                </p>
+                <p className="text-lg leading-relaxed mb-4">
+                  Many couples choose to complete this legal element at a registry office, or at an approved venue, either before or after their main celebration. In some cases, a registrar may also be able to attend your venue to carry out the legal formalities on the day.
+                </p>
+                <p className="text-lg leading-relaxed mb-4 font-serif italic font-bold">
+                  Beyond the legalities, your ceremony is where the real magic happens.
+                </p>
+                <p className="text-lg leading-relaxed mb-4">
+                  This is the moment where you exchange your vows and rings, surrounded by the people you love. This is where your story is told, your personalities shine and your ceremony becomes truly your own. It can take place anywhere, at any time, and be as unique, meaningful, and personal as you wish.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Beyond the legalities, your ceremony is where the real magic happens. It can take place anywhere, at any time, and be as unique and personal as you wish.
+                  As your celebrant, I will gently guide you through both the legal side and the creative possibilities. I will help you plan a ceremony that fits beautifully around the formal requirements. Together, I promise, we will create something truly exceptional, that is designed entirely around you, and filled with warmth, meaning, and love.
                 </p>
               </div>
             </div>
@@ -215,7 +240,7 @@ export function Weddings() {
                 <img
                   src={weddingCouple2}
                   alt="Couple"
-                  className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+                  className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-0 w-full h-[118%] object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-primary/20" />
                 <div className="absolute bottom-8 left-8 right-8 text-white">

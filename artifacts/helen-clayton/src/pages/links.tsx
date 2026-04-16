@@ -9,16 +9,16 @@ import memorialGarden1 from "@assets/stock_images/memorial_garden_1.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 const links = [
-  { title: "gov.uk Marriage Guidance", url: "https://www.gov.uk/marriages-civil-partnerships", type: "Wedding", desc: "Official government guidance on registering a marriage in England." },
-  { title: "BCP Council Registry", url: "https://www.bcpcouncil.gov.uk/births-deaths-marriages-and-citizenship/marriages-and-civil-partnerships", type: "Wedding", desc: "Borough of Bournemouth, Christchurch and Poole registry information." },
-  { title: "Dorset Council Registration Offices", url: "https://www.dorsetcouncil.gov.uk/births-deaths-and-ceremonies/marriages-and-civil-partnerships", type: "Wedding", desc: "Register your marriage legally with Dorset Council." },
-  { title: "Blandford Registration Office", url: "https://www.dorsetcouncil.gov.uk/births-deaths-and-ceremonies/blandford-registration-office", type: "Wedding", desc: "Local registration office in Blandford Forum." },
-  { title: "Ringwood Register Office", url: "https://www.hants.gov.uk/community/registersoffice/offices/ringwood", type: "Wedding", desc: "Register office serving the Ringwood area." },
-  { title: "Hitched.co.uk Wedding Venues", url: "https://www.hitched.co.uk/wedding-venues/", type: "Wedding", desc: "Discover and book beautiful wedding venues across the UK." },
-  { title: "Dorset Council Wedding Venues", url: "https://www.dorsetcouncil.gov.uk/births-deaths-and-ceremonies/approved-premises-for-ceremonies", type: "Wedding", desc: "Licensed venues for civil ceremonies in Dorset." },
-  { title: "Cruse Bereavement Support", url: "https://www.cruse.org.uk", type: "Bereavement", desc: "Free bereavement counselling and support services." },
-  { title: "NAFD Funeral Planning", url: "https://nafd.org.uk", type: "Bereavement", desc: "National Association of Funeral Directors guidance." },
-  { title: "The Good Funeral Guide", url: "https://www.goodfuneralguide.co.uk", type: "Bereavement", desc: "Independent advice on planning a meaningful funeral." }
+  { title: "gov.uk", url: "https://www.gov.uk", type: "Wedding", desc: "A clear and official guidance on the legal requirements for marriage in England and Wales." },
+  { title: "BCP Council", url: "https://www.bcpcouncil.gov.uk/births-deaths-marriages-and-civil-partnerships/weddings-marriages-and-civil-partnerships", type: "Registry Office", desc: "Registry Office in your local area — BCP Council." },
+  { title: "Dorset Council Registration Offices", url: "https://www.dorsetcouncil.gov.uk/w/registration-offices-in-dorset", type: "Registry Office", desc: "Registry Offices in your local area — Dorset Council." },
+  { title: "Blandford Registration Office", url: "https://www.dorsetcouncil.gov.uk/w/blandford-registration-office", type: "Registry Office", desc: "Registry Office in your local area — Blandford." },
+  { title: "Ringwood Register Office", url: "https://www.hants.gov.uk/birthsdeathsandceremonies/registrationservices/registeroffices/ringwood-register-office", type: "Registry Office", desc: "Registry Office in your local area — Ringwood." },
+  { title: "Hitched.co.uk", url: "https://www.hitched.co.uk/", type: "Wedding Venues", desc: "Wedding venues in Dorset and beyond." },
+  { title: "Dorset Council Wedding Venues", url: "https://www.dorsetcouncil.gov.uk/births-deaths-marriages/weddings-marriages-and-civil-partnerships/wedding-venues", type: "Wedding Venues", desc: "Wedding venues in Dorset — approved premises." },
+  { title: "Cruse Bereavement Care", url: "https://www.cruse.org.uk/", type: "Bereavement", desc: "Offers support and guidance for people coping with grief." },
+  { title: "NAFD", url: "https://www.nafd.org.uk/", type: "Bereavement", desc: "Information about funeral planning and standards." },
+  { title: "The Good Funeral Guide", url: "https://goodfuneralguide.co.uk/", type: "Bereavement", desc: "A guide for consumers of the aspects of organising a funeral." }
 ];
 
 export function Links() {
@@ -58,7 +58,7 @@ export function Links() {
 
   }, { scope: container });
 
-  const weddingLinks = links.filter(l => l.type === "Wedding");
+  const weddingLinks = links.filter(l => l.type !== "Bereavement");
   const bereavementLinks = links.filter(l => l.type === "Bereavement");
 
   return (
@@ -73,20 +73,20 @@ export function Links() {
           <div className="parallax-wrap overflow-hidden relative">
             <img src={memorialGarden1} alt="Memorial" className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-foreground/50 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/25" />
         </div>
         <div className="relative z-10 px-6 md:px-16 pb-16 pt-40">
           <h1 className="page-title text-6xl md:text-9xl font-serif font-black italic text-white leading-none">
             Helpful Links
           </h1>
-          <p className="text-xl text-secondary mt-4 font-serif italic">
-            Resources to support you in planning your ceremony or navigating a difficult time.
+          <p className="text-xl text-secondary mt-4 font-serif italic max-w-3xl">
+            Please find a selection of services and organisations that you may find of use when planning a ceremony or are looking for some support.
           </p>
         </div>
       </section>
 
       {/* LINKS — by category */}
-      <section className="py-20 px-6 md:px-16">
+      <section className="py-20 px-6 md:px-16" style={{ background: 'linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 35% 91%) 50%, hsl(40 20% 98%) 100%)' }}>
         <div className="max-w-7xl mx-auto space-y-20">
 
           {/* Weddings */}

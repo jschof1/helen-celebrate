@@ -6,6 +6,7 @@ import helenPortrait1 from "@assets/stock_images/helen_portrait_1.jpg";
 import helenPortrait2 from "@assets/stock_images/helen_portrait_2.jpg";
 import memorialGarden2 from "@assets/stock_images/memorial_garden_2.jpg";
 import coastSunset from "@assets/stock_images/coast_sunset.jpg";
+import { ApcCertifiedBadge } from "@/components/apc-certified-badge";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,7 +105,7 @@ export function MeetHelen() {
       </section>
 
       {/* BIO — Split layout with portrait */}
-      <section className="bg-background py-28 px-6 md:px-16">
+      <section className="py-28 px-6 md:px-16" style={{ background: 'linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 40% 90%) 60%, hsl(38 30% 94%) 100%)' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
 
           {/* Portrait column */}
@@ -127,6 +128,12 @@ export function MeetHelen() {
 
           {/* Text column */}
           <div className="md:col-span-7 flex flex-col justify-center space-y-10 pt-8">
+            <div className="content-block flex flex-wrap items-center gap-4 pb-2">
+              <ApcCertifiedBadge size="sm" className="shrink-0" />
+              <p className="text-sm md:text-base text-muted-foreground max-w-md">
+                APC Certified Celebrant — accredited training with the Association of Professional Celebrants.
+              </p>
+            </div>
             <div className="content-block">
               <h2 className="text-4xl font-serif text-foreground mb-4 border-b-2 border-secondary pb-4 inline-block">Proud Mum &amp; Family at Heart</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
@@ -137,20 +144,20 @@ export function MeetHelen() {
             <div className="content-block">
               <h2 className="text-4xl font-serif text-foreground mb-4 border-b-2 border-secondary pb-4 inline-block">Empathy is my Foundation</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                With a background in teaching and years of experience working within cancer care, I understand the importance of empathy, compassion, and truly listening to people's stories. These qualities are not qualities I learned — they are who I am.
+                With my background in teaching and years of experience working within cancer care, I understand the importance of empathy, compassion, and truly listening to people's stories.
               </p>
             </div>
 
             <div className="content-block">
               <h2 className="text-4xl font-serif text-foreground mb-4 border-b-2 border-secondary pb-4 inline-block">A Natural Next Step</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Becoming a celebrant felt like the next natural step. I am passionate about helping people mark life's most meaningful moments — whether that is creating the perfect wedding celebration or a heartfelt and personal send-off for a loved one.
+                Becoming a celebrant felt like the next natural step. I am passionate about helping people mark life's most meaningful moments, whether that is creating the perfect wedding celebration or a heartfelt and personal send-off for a loved one.
               </p>
             </div>
 
             <div className="content-block pt-4 bg-card p-8 border-l-4 border-primary">
               <p className="text-xl italic text-foreground leading-relaxed">
-                Every ceremony I deliver is bespoke, thoughtful, and true to the people at its heart — because each story deserves to be told with genuine care and a truly personal touch.
+                Every ceremony I deliver is bespoke, thoughtful, and true to the people at its heart because each story deserves to be told with genuine care and a truly personal touch.
               </p>
             </div>
           </div>
@@ -175,7 +182,7 @@ export function MeetHelen() {
             alt="Beautiful garden"
             className="bg-accent-img w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/90" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsl(0 68% 35% / 0.12) 0%, hsl(35 40% 62% / 0.25) 50%, hsl(40 20% 98% / 0.88) 100%)' }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16">
           <h2 className="text-5xl md:text-7xl font-serif italic text-primary mb-16 content-block">What I bring to every ceremony</h2>

@@ -12,47 +12,47 @@ gsap.registerPlugin(ScrollTrigger);
 const faqs = [
   {
     q: "What does a celebrant do?",
-    a: "A celebrant creates and conducts bespoke ceremonies tailored to the people involved, free from the restrictions of a traditional religious or strictly statutory service. I craft a unique, personal script and guide you through the whole process."
+    a: "A celebrant works with you to create and deliver a personal, meaningful ceremony. They take the time to listen and understand your wishes, then crafts a ceremony that truly reflects your story, your values, and the moment you are marking."
   },
   {
     q: "What types of ceremonies do you offer?",
-    a: "I offer Weddings, Vow Renewals, Funerals, Celebration of Life services, Memorials, and Scattering/Internment of Ashes. If you're not sure what type of ceremony fits your needs, just get in touch and we'll figure it out together."
+    a: "I offer a range of ceremonies including weddings, vow renewals, funerals, memorial services, and scattering or interment of ashes. Each one is thoughtfully created to suit your individual needs."
   },
   {
     q: "How personal can a ceremony be?",
-    a: "Entirely personal. There is no set template. Every word is chosen to reflect your beliefs, personality, and story. I've never written the same ceremony twice."
+    a: "Completely personal. There are no set scripts or templates. Every ceremony is written from scratch, with your input, so it feels natural, meaningful, and true to you."
   },
   {
-    q: "Will you help guide us through?",
-    a: "Absolutely. Whether you're planning a joyous wedding or navigating a difficult bereavement, I am here to hold your hand, offer suggestions, and structure the ceremony. You don't need to have everything figured out before you contact me."
+    q: "Will you help guide us through the whole process?",
+    a: "Yes, absolutely. I will support you every step of the way, from our first conversation through to the day itself. I will offer guidance, ideas, and reassurance whenever you need it."
   },
   {
     q: "Can we include our own readings, music or traditions?",
-    a: "Yes. You have complete freedom to include religious, spiritual, or secular elements, as well as family traditions, cultural rituals, favourite poems, or any music that means something to you."
+    a: "Absolutely. You are free to include anything that feels right for you, whether that is your favourite music, special readings, cultural traditions, or personal touches that reflect your loved one or your relationship."
   },
   {
     q: "Do you plan services before someone has passed away?",
-    a: "Yes. Many people find great comfort in planning their own funeral service in advance, ensuring their exact wishes are recorded and respected. It's a kind and generous act for those left behind."
+    a: "Yes, absolutely. I am happy to support people in planning their own service particularly when they are living with a serious or terminal illness. Many find comfort in knowing that their ceremony will truly reflect their life, their personality and the things that matter most to them. It can also bring peace of mind knowing that everything is arranged. This can help to ease the burden on loved ones at a very difficult time. Sometimes, people choose to include personal touches that will be shared later. This maybe a letter, a message or something meaningful for their family to cherish. These moments can be incredibly special and comforting for those left behind. I do this with sensitivity, care, and understanding. I ensure everything feels right."
   },
   {
-    q: "What if the ceremony is outside?",
-    a: "Because celebrant-led ceremonies do not require a licensed structure, you can hold your ceremony in a garden, woodland, beach, field, or any location meaningful to you. I've conducted ceremonies in some truly beautiful spots."
+    q: "What if the ceremony is outside or in a different location?",
+    a: "I am happy to lead ceremonies in a variety of settings, whether at a crematorium, graveside or another meaningful location. I will create a service that feels right for you."
   },
   {
     q: "How far will you travel?",
-    a: "My fees include travel within 30 miles of Poole, Dorset. I am happy to travel further, though additional travel costs may apply. Get in touch to discuss."
+    a: "Travel within a 30-mile radius is included in my fee. If your ceremony is further afield, we can discuss arrangements in advance."
   },
   {
-    q: "How do I pay?",
-    a: "Payment is made via bank transfer. For weddings, a deposit secures your date with the balance due closer to the ceremony. For funerals, payment is often arranged directly via the Funeral Director."
+    q: "How do I pay for your celebrant services?",
+    a: "Weddings - Payment is usually made by bank transfer, making the process simple and straightforward. A deposit will be requested to secure your date, with the remaining balance due before the ceremony. Full details are provided in writing at our initial meeting. Funerals - For your ease and convenience, my fee is typically included as part of the arrangements made with your Funeral Director."
   },
   {
-    q: "How far in advance should we book?",
-    a: "For weddings, as soon as you have a date in mind — popular dates book up quickly! For funerals, I can respond very quickly, usually within a few days, working alongside your Funeral Director."
+    q: "How far in advance should we book your services?",
+    a: "It is always best to get in touch as early as possible to secure your date. However, I will always do my best to accommodate shorter notice where I can."
   },
   {
     q: "How do we get started?",
-    a: "Simply get in touch by phone or email for a friendly, no-obligation chat. There's no pressure and no commitment — just a conversation to see if we're the right fit for each other."
+    a: "Simply get in touch for a friendly, no-obligation chat. We can talk through your ideas, answer any questions, and see how I can support you."
   }
 ];
 
@@ -121,7 +121,7 @@ export function Faqs() {
       </section>
 
       {/* FAQ CONTENT — main grid */}
-      <section className="py-20 px-6 md:px-16">
+      <section className="py-20 px-6 md:px-16" style={{ background: 'linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 40% 90%) 40%, hsl(0 15% 95%) 70%, hsl(38 30% 94%) 100%)' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
 
           {/* FAQ list */}
