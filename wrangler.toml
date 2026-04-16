@@ -2,4 +2,4 @@
 # Vite app in this monorepo (not repo-root /dist).
 # https://developers.cloudflare.com/pages/functions/wrangler-configuration/
 name = "helen-celebrate"
-pages_build_output_dir = "./artifacts/helen-clayton/dist/public"
+pages_build_output_dir = "./dist/public"
