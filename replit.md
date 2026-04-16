@@ -25,3 +25,13 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## Artifacts
+
+### Helen Clayton Celebrancy Website (`artifacts/helen-clayton`)
+- **Type**: React + Vite (presentation-first, no backend)
+- **Preview path**: `/`
+- **Stack**: React, Vite, Tailwind CSS, GSAP + @gsap/react, wouter, Playfair Display + DM Sans fonts
+- **Pages**: Home, Meet Helen, Funerals & Memorials, Weddings & Vow Renewals, Costs, FAQs, Helpful Links, Contact
+- **Design**: Experimental broken-layout, GSAP ScrollTrigger animations, dark red (#8b1a1a) + dark beige + white palette
+- **Client**: Helen Clayton Celebrancy, Poole, Dorset
