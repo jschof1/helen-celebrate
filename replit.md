@@ -35,3 +35,8 @@ See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and pa
 - **Pages**: Home, Meet Helen, Funerals & Memorials, Weddings & Vow Renewals, Costs, FAQs, Helpful Links, Contact
 - **Design**: Experimental broken-layout, GSAP ScrollTrigger animations, dark red (#8b1a1a) + dark beige + white palette
 - **Client**: Helen Clayton Celebrancy, Poole, Dorset
+- **Media assets** (at `attached_assets/`):
+  - **Videos** (AI-generated): `generated_videos/wedding_ceremony.mp4`, `peaceful_garden.mp4`, `dorset_coast.mp4`
+  - **Stock images** (in `stock_images/`): wedding_outdoor_1/2, wedding_couple_1/2, funeral_flowers, memorial_garden_1/2, coast_sunset, helen_portrait_1/2, wedding_rings, crematorium, vow_renewal
+- **Vite fs.allow**: `attached_assets/` is explicitly allowed so videos and large images are served in dev
+- **Image alias**: `@assets` → `../../attached_assets` (set in `vite.config.ts`)

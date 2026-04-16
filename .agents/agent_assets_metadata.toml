@@ -1,0 +1,80 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "fvDc06BDq--Lv7xmKkoFP"
+uri = "file://attached_assets/stock_images/funeral_flowers.jpg"
+type = "image"
+title = "white lilies funeral flowers sympathy arrangement elegant"
+
+[[outputs]]
+id = "9Ks2RYLKDnR5ty9EbomDE"
+uri = "file://attached_assets/stock_images/wedding_couple_1.jpg"
+type = "image"
+title = "beautiful bride groom romantic portrait countryside"
+
+[[outputs]]
+id = "-5rf2xiuienx6RtgTGwyL"
+uri = "file://attached_assets/stock_images/wedding_couple_2.jpg"
+type = "image"
+title = "beautiful bride groom romantic portrait countryside"
+
+[[outputs]]
+id = "3yuSp6i3ki3kG_1-7JxaJ"
+uri = "file://attached_assets/stock_images/wedding_outdoor_1.jpg"
+type = "image"
+title = "outdoor wedding ceremony England countryside summer golden hour"
+
+[[outputs]]
+id = "l8C0PYpcfWE6ZwxgoiYoj"
+uri = "file://attached_assets/stock_images/wedding_outdoor_2.jpg"
+type = "image"
+title = "outdoor wedding ceremony England countryside summer golden hour"
+
+[[outputs]]
+id = "OEk-GQxX42GYemAgyLG6Y"
+uri = "file://attached_assets/stock_images/coast_sunset.jpg"
+type = "image"
+title = "ocean waves coast sunset peaceful England beach"
+
+[[outputs]]
+id = "KarEKGhRP4WKNA0EsPyhv"
+uri = "file://attached_assets/stock_images/memorial_garden_1.jpg"
+type = "image"
+title = "peaceful churchyard garden sunlight trees England serene"
+
+[[outputs]]
+id = "8o50E7INo7UBIebUYDgYC"
+uri = "file://attached_assets/stock_images/memorial_garden_2.jpg"
+type = "image"
+title = "peaceful churchyard garden sunlight trees England serene"
+
+[[outputs]]
+id = "NdLIP2dMjs36ebbeKTqSY"
+uri = "file://attached_assets/stock_images/helen_portrait_1.jpg"
+type = "image"
+title = "friendly warm professional woman smiling portrait Dorset"
+
+[[outputs]]
+id = "JQM9mlq_AU2mYJ2-4_hsb"
+uri = "file://attached_assets/stock_images/helen_portrait_2.jpg"
+type = "image"
+title = "friendly warm professional woman smiling portrait Dorset"
+
+[[outputs]]
+id = "4P_WQUxDRV9ZvRMjN6SGp"
+uri = "file://attached_assets/stock_images/wedding_rings.jpg"
+type = "image"
+title = "wedding rings gold roses romantic close up"
+
+[[outputs]]
+id = "0xwUen5V-CSld3sgUd1CO"
+uri = "file://attached_assets/stock_images/crematorium.jpg"
+type = "image"
+title = "UK crematorium chapel peaceful exterior garden"
+
+[[outputs]]
+id = "4NM9YBHqzoH9s4SU8M03P"
+uri = "file://attached_assets/stock_images/vow_renewal.jpg"
+type = "image"
+title = "vow renewal ceremony intimate couple mature love"

@@ -1,52 +1,58 @@
 import React, { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Plus } from "lucide-react";
+import weddingOutdoor2 from "@assets/stock_images/wedding_outdoor_2.jpg";
+import memorialGarden2 from "@assets/stock_images/memorial_garden_2.jpg";
+import coastSunset from "@assets/stock_images/coast_sunset.jpg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const faqs = [
   {
     q: "What does a celebrant do?",
-    a: "A celebrant creates and conducts bespoke ceremonies tailored to the people involved, free from the restrictions of a traditional religious or strictly statutory service."
+    a: "A celebrant creates and conducts bespoke ceremonies tailored to the people involved, free from the restrictions of a traditional religious or strictly statutory service. I craft a unique, personal script and guide you through the whole process."
   },
   {
     q: "What types of ceremonies do you offer?",
-    a: "I offer Weddings, Vow Renewals, Funerals, Celebration of Life services, Memorials, and Scattering/Internment of Ashes."
+    a: "I offer Weddings, Vow Renewals, Funerals, Celebration of Life services, Memorials, and Scattering/Internment of Ashes. If you're not sure what type of ceremony fits your needs, just get in touch and we'll figure it out together."
   },
   {
     q: "How personal can a ceremony be?",
-    a: "Entirely personal. There is no set template. Every word is chosen to reflect your beliefs, personality, and story."
+    a: "Entirely personal. There is no set template. Every word is chosen to reflect your beliefs, personality, and story. I've never written the same ceremony twice."
   },
   {
     q: "Will you help guide us through?",
-    a: "Absolutely. Whether you're planning a joyous wedding or navigating a difficult bereavement, I am here to hold your hand, offer suggestions, and structure the ceremony."
+    a: "Absolutely. Whether you're planning a joyous wedding or navigating a difficult bereavement, I am here to hold your hand, offer suggestions, and structure the ceremony. You don't need to have everything figured out before you contact me."
   },
   {
     q: "Can we include our own readings, music or traditions?",
-    a: "Yes. You have complete freedom to include religious, spiritual, or secular elements, as well as family traditions or cultural rituals."
+    a: "Yes. You have complete freedom to include religious, spiritual, or secular elements, as well as family traditions, cultural rituals, favourite poems, or any music that means something to you."
   },
   {
     q: "Do you plan services before someone has passed away?",
-    a: "Yes. Many people find comfort in planning their own funeral service in advance, ensuring their exact wishes are recorded and respected."
+    a: "Yes. Many people find great comfort in planning their own funeral service in advance, ensuring their exact wishes are recorded and respected. It's a kind and generous act for those left behind."
   },
   {
     q: "What if the ceremony is outside?",
-    a: "Because celebrant-led ceremonies do not require a licensed structure, you can hold your ceremony in a garden, woodland, beach, or field."
+    a: "Because celebrant-led ceremonies do not require a licensed structure, you can hold your ceremony in a garden, woodland, beach, field, or any location meaningful to you. I've conducted ceremonies in some truly beautiful spots."
   },
   {
     q: "How far will you travel?",
-    a: "My fees include travel within 30 miles of Poole, Dorset. I am happy to travel further, though additional travel costs may apply."
+    a: "My fees include travel within 30 miles of Poole, Dorset. I am happy to travel further, though additional travel costs may apply. Get in touch to discuss."
   },
   {
     q: "How do I pay?",
-    a: "Payment is typically made via bank transfer. For weddings, a deposit secures the date, with the balance due closer to the ceremony. For funerals, this is often handled directly via your Funeral Director."
+    a: "Payment is made via bank transfer. For weddings, a deposit secures your date with the balance due closer to the ceremony. For funerals, payment is often arranged directly via the Funeral Director."
   },
   {
     q: "How far in advance should we book?",
-    a: "For weddings, as soon as you have a date in mind! For funerals, I can respond quickly, usually within a few days, working alongside your chosen Funeral Director."
+    a: "For weddings, as soon as you have a date in mind — popular dates book up quickly! For funerals, I can respond very quickly, usually within a few days, working alongside your Funeral Director."
   },
   {
     q: "How do we get started?",
-    a: "Simply get in touch via phone or email for a friendly, no-obligation chat."
+    a: "Simply get in touch by phone or email for a friendly, no-obligation chat. There's no pressure and no commitment — just a conversation to see if we're the right fit for each other."
   }
 ];
 
@@ -55,14 +61,36 @@ export function Faqs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   useGSAP(() => {
-    gsap.from(".faq-item", {
-      y: 30,
+    gsap.from(".page-title", {
+      y: 80,
       opacity: 0,
-      stagger: 0.1,
+      duration: 1.3,
+      ease: "power3.out"
+    });
+
+    gsap.from(".faq-item", {
+      scrollTrigger: { trigger: ".faq-list", start: "top 85%" },
+      y: 40,
+      opacity: 0,
+      stagger: 0.07,
       duration: 0.8,
       ease: "power2.out",
-      delay: 0.2
     });
+
+    // Parallax on sidebar images
+    gsap.utils.toArray(".parallax-img").forEach((img: any) => {
+      gsap.to(img, {
+        scrollTrigger: {
+          trigger: img.closest(".parallax-wrap"),
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.5,
+        },
+        y: "-18%",
+        ease: "none"
+      });
+    });
+
   }, { scope: container });
 
   const toggleFaq = (index: number) => {
@@ -70,44 +98,99 @@ export function Faqs() {
   };
 
   return (
-    <div ref={container} className="bg-card min-h-screen pt-40 pb-32 px-6 md:px-12">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-6xl md:text-8xl font-serif text-primary italic mb-16 text-center">
-          Questions & Answers
-        </h1>
+    <div ref={container} className="bg-background min-h-screen overflow-hidden">
 
-        <div className="space-y-4">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div 
-                key={i} 
-                className="faq-item border border-secondary bg-background overflow-hidden"
-              >
-                <button 
-                  onClick={() => toggleFaq(i)}
-                  className="w-full p-6 md:p-8 flex justify-between items-center text-left hover:bg-secondary/10 transition-colors"
-                  data-testid={`faq-button-${i}`}
+      {/* HERO — image background */}
+      <section className="relative min-h-[50vh] flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0 parallax-wrap">
+          <img
+            src={weddingOutdoor2}
+            alt="Wedding"
+            className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-foreground/40 to-transparent" />
+        </div>
+        <div className="relative z-10 px-6 md:px-16 pb-16 pt-40">
+          <h1 className="page-title text-7xl md:text-9xl font-serif font-black italic text-white leading-none">
+            Questions
+          </h1>
+          <p className="page-title text-4xl md:text-6xl font-serif italic text-secondary mt-2">
+            &amp; Answers
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ CONTENT — main grid */}
+      <section className="py-20 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+          {/* FAQ list */}
+          <div className="lg:col-span-8 faq-list space-y-4">
+            {faqs.map((faq, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <div
+                  key={i}
+                  className="faq-item border border-secondary/40 bg-card overflow-hidden"
                 >
-                  <span className="text-2xl font-serif text-foreground pr-8">{faq.q}</span>
-                  <Plus 
-                    className={`w-8 h-8 text-primary shrink-0 transition-transform duration-500 ${isOpen ? 'rotate-45' : ''}`} 
-                  />
-                </button>
-                
-                <div 
-                  className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
-                  style={{ maxHeight: isOpen ? '500px' : '0px' }}
-                >
-                  <div className="p-6 md:p-8 pt-0 text-lg text-muted-foreground border-t border-secondary/30 mt-2">
-                    {faq.a}
+                  <button
+                    onClick={() => toggleFaq(i)}
+                    className="w-full p-6 md:p-8 flex justify-between items-center text-left hover:bg-secondary/10 transition-colors group"
+                    data-testid={`faq-button-${i}`}
+                  >
+                    <span className="text-2xl font-serif text-foreground pr-8 group-hover:text-primary transition-colors">{faq.q}</span>
+                    <Plus
+                      className={`w-8 h-8 text-primary shrink-0 transition-transform duration-500 ${isOpen ? 'rotate-45' : ''}`}
+                    />
+                  </button>
+
+                  <div
+                    className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                    style={{ maxHeight: isOpen ? '400px' : '0px' }}
+                  >
+                    <div className="p-6 md:p-8 pt-0 text-lg text-muted-foreground border-t border-secondary/30 leading-relaxed">
+                      {faq.a}
+                    </div>
                   </div>
                 </div>
+              );
+            })}
+          </div>
+
+          {/* Sticky sidebar */}
+          <div className="lg:col-span-4 space-y-8">
+            <div className="parallax-wrap sticky top-24 space-y-8">
+              <div className="relative overflow-hidden h-80">
+                <img
+                  src={memorialGarden2}
+                  alt="Garden"
+                  className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+                />
+                <div className="absolute inset-0 bg-primary/20" />
               </div>
-            );
-          })}
+              <div className="bg-primary text-primary-foreground p-8">
+                <h3 className="text-3xl font-serif italic text-secondary mb-4">Still have questions?</h3>
+                <p className="text-lg opacity-90 mb-6">
+                  I'm always happy to have a no-pressure chat to help you understand what's involved.
+                </p>
+                <a
+                  href="tel:07786789331"
+                  className="block text-center border-2 border-secondary text-secondary py-3 text-xl font-bold hover:bg-secondary hover:text-primary transition-colors"
+                  data-testid="link-faq-phone"
+                >
+                  07786 789331
+                </a>
+              </div>
+              <div className="overflow-hidden h-48">
+                <img src={coastSunset} alt="Dorset coast" className="w-full h-full object-cover" />
+                <div className="relative -mt-full" />
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </section>
+
     </div>
   );
 }
