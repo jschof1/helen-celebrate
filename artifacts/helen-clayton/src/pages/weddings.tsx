@@ -108,7 +108,7 @@ export function Weddings() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 text-center pt-32 pb-20">
           <h1 className="text-[12vw] md:text-[9vw] leading-none font-serif font-black italic text-white page-title mb-2">
-            Your Love Story
+            Your Love Story...
           </h1>
           <h2 className="text-5xl md:text-8xl font-serif italic text-secondary page-title">
             Your Ceremony.

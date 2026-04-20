@@ -132,7 +132,6 @@ export function Costs() {
             <div className="absolute inset-0">
               <img src={weddingOutdoor1} alt="Wedding" className="w-full h-full object-cover opacity-20" />
             </div>
-            <div className="absolute -top-4 -right-4 bg-secondary text-foreground text-sm font-bold px-6 py-2 rotate-6 z-20">Most Popular</div>
             <div className="relative z-10 p-10 md:p-14">
               <h2 className="text-4xl font-serif mb-4">Weddings</h2>
               <div className="text-8xl font-black text-secondary mb-4 font-serif leading-none">

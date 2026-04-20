@@ -143,46 +143,6 @@ export function Funerals() {
         </div>
       </section>
 
-      {/* EULOGY WRITING SECTION */}
-      <section className="py-24 px-6 md:px-16 relative" style={{ background: 'linear-gradient(160deg, hsl(220 20% 10%) 0%, hsl(220 15% 14%) 100%)' }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="section-rule h-px w-full bg-secondary mb-16" />
-          <div className="grid md:grid-cols-12 gap-16 items-center">
-            <div className="md:col-span-7 order-2 md:order-1">
-              <h2 className="text-5xl md:text-6xl font-serif italic text-secondary mb-8 content-fade">
-                Eulogy Writing
-              </h2>
-              <p className="text-xl leading-relaxed opacity-90 mb-6 content-fade">
-                A eulogy is one of the most meaningful parts of any funeral or memorial service. It's the moment where your loved one's life is truly brought to life through words — their personality, their passions, and the moments that made them who they were.
-              </p>
-              <p className="text-xl leading-relaxed opacity-80 mb-6 content-fade">
-                I understand that finding the right words can feel overwhelming, especially during such a difficult time. That's why I take the time to sit with you, listen carefully, and gather all the stories, memories, and little details that paint a picture of the person you love.
-              </p>
-              <p className="text-xl leading-relaxed opacity-80 mb-6 content-fade">
-                From these conversations, I will craft a heartfelt and personal tribute that captures their spirit and honours their life. Whether it's warm and reflective, gently humorous, or quietly moving, the eulogy will feel authentic and true to them.
-              </p>
-              <p className="text-xl leading-relaxed opacity-80 content-fade">
-                If you would like to deliver the eulogy yourself but need help shaping your thoughts, I can support you with that too. Either way, every word will be written with care, compassion, and the respect your loved one deserves.
-              </p>
-            </div>
-            <div className="md:col-span-5 order-1 md:order-2 content-fade">
-              <div className="parallax-wrap relative h-[50vh] overflow-hidden">
-                <img
-                  src={coastSunset}
-                  alt="Peaceful sunset"
-                  className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
-                />
-              </div>
-              <div className="mt-8 border-l-4 border-secondary pl-6">
-                <p className="text-2xl font-serif italic text-secondary leading-relaxed">
-                  "Every life, a story worth telling."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* MEMORIAL SERVICES SECTION */}
       <section className="py-24 px-6 md:px-16 relative" style={{ background: 'linear-gradient(180deg, hsl(220 20% 8%) 0%, hsl(0 30% 14%) 50%, hsl(220 20% 8%) 100%)' }}>
         <div className="max-w-7xl mx-auto">

@@ -91,6 +91,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
+      {/* Per-page Contact CTA — Helen requested contact info on every page */}
+      <section className="relative py-16 px-6 md:px-12 bg-primary text-primary-foreground" aria-label="Get in touch">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-center md:text-left">
+            <h2 className="font-serif text-3xl md:text-4xl italic text-secondary mb-2">Let's Talk</h2>
+            <p className="text-lg opacity-90 max-w-lg">Get in touch for a friendly, no-obligation chat about your ceremony.</p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <a href="tel:07786789331" className="text-xl font-bold hover:text-secondary transition-colors">
+              07786 789331
+            </a>
+            <span className="hidden sm:block text-white/30">|</span>
+            <a href="mailto:contact@hccelebrancy.co.uk" className="text-xl font-bold hover:text-secondary transition-colors">
+              contact@hccelebrancy.co.uk
+            </a>
+            <Link href="/contact" className="ml-0 sm:ml-4 border-2 border-secondary text-secondary font-bold px-8 py-3 hover:bg-secondary hover:text-primary transition-colors">
+              Contact Me
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section
         className="relative mt-24 overflow-hidden"
         aria-labelledby="apc-trust-heading"
@@ -239,7 +261,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <p className="mt-14 border-t border-white/10 pt-8 text-center text-[0.7rem] uppercase tracking-[0.22em] text-background/45">
-            Website made by the Academy of Professional Celebrants
+            © {new Date().getFullYear()} Helen Clayton Celebrancy. All rights reserved.
           </p>
         </div>
       </footer>

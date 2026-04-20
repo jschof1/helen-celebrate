@@ -85,21 +85,21 @@ export function MeetHelen() {
     <div ref={container} className="bg-card min-h-screen overflow-hidden">
 
       {/* PAGE HEADER — Title over full image */}
-      <section className="portrait-section relative min-h-[80vh] flex flex-col justify-end overflow-hidden pt-32">
+      <section className="portrait-section relative min-h-[80vh] flex flex-col justify-center overflow-hidden pt-32">
         <div className="absolute inset-0">
           <img
             src={helenPortrait1}
             alt="Helen Clayton Celebrant"
             className="portrait-img absolute inset-0 w-full h-[115%] object-cover object-top top-[-15%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/50 to-transparent" />
+          <div className="absolute inset-0 bg-primary/70" />
         </div>
-        <div className="relative z-10 px-6 md:px-16 pb-20">
+        <div className="relative z-10 px-6 md:px-16 text-center">
           <h1 className="page-title text-[10vw] md:text-[8vw] font-serif font-black italic text-white leading-none mb-4">
             Meet Helen
           </h1>
-          <p className="text-2xl md:text-4xl font-serif italic text-secondary max-w-2xl">
-            Getting to know a little about me.
+          <p className="text-2xl md:text-4xl font-serif italic text-secondary max-w-2xl mx-auto">
+            Getting to know a little about me
           </p>
         </div>
       </section>
