@@ -8,7 +8,7 @@ import { ApcCertifiedBadge } from "@/components/apc-certified-badge";
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const [, setLocation] = useLocation();
+  const [location] = useLocation();
 
   useGSAP(() => {
     if (isMenuOpen) {
@@ -45,8 +45,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-[100dvh] flex flex-col bg-background text-foreground font-sans">
       <nav className="fixed top-0 left-0 right-0 z-50 mix-blend-difference p-6 flex justify-between items-center text-white">
-        <Link href="/" className="font-serif text-2xl font-bold italic tracking-tighter" data-testid="nav-logo">
-          HC.
+        <Link href="/" data-testid="nav-logo">
+          <img src="/logo.png" alt="Helen Clayton Celebrancy" className="h-12 w-auto" />
         </Link>
         
         <button 
@@ -92,6 +92,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       {/* Per-page Contact CTA — Helen requested contact info on every page */}
+      {!location.startsWith("/contact") && (
       <section className="relative py-16 px-6 md:px-12 bg-primary text-primary-foreground" aria-label="Get in touch">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
@@ -112,6 +113,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </section>
+      )}
 
       <section
         className="relative mt-24 overflow-hidden"
