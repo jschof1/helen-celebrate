@@ -344,11 +344,11 @@ export function Home() {
           </div>
 
           {/* Image panel — Helen outdoors */}
-          <div className="md:w-1/2 parallax-wrap relative h-[60vh] overflow-hidden">
+          <div className="md:w-1/2 relative h-[60vh] md:h-auto overflow-hidden">
             <img
               src={helenPortrait2}
               alt="Helen Clayton outdoors"
-              className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-0 w-full h-[118%] object-cover object-top"
+              className="w-full h-full object-cover object-top"
             />
           </div>
         </div>
