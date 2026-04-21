@@ -300,7 +300,7 @@ export function Home() {
             <img
               src={helenPortrait1}
               alt="Helen Clayton, Family Celebrant"
-              className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-0 w-full h-[118%] object-cover object-top"
+              className="parallax-img parallax-img--keep-heads absolute inset-x-0 md:top-0 w-full h-auto max-h-none md:h-[118%] object-contain md:object-cover md:object-top"
             />
             <div className="absolute inset-0 bg-primary/10" />
           </div>
@@ -344,11 +344,11 @@ export function Home() {
           </div>
 
           {/* Image panel — Helen outdoors */}
-          <div className="md:w-1/2 relative h-[60vh] md:h-auto overflow-hidden">
+          <div className="md:w-1/2 relative overflow-hidden">
             <img
               src={helenPortrait2}
               alt="Helen Clayton outdoors"
-              className="w-full h-full object-cover object-top"
+              className="w-full h-auto object-contain md:h-full md:object-cover md:object-top"
             />
           </div>
         </div>

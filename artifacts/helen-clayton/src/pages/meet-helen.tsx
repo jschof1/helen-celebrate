@@ -90,7 +90,7 @@ export function MeetHelen() {
           <img
             src={helenPortrait1}
             alt="Helen Clayton Celebrant"
-            className="portrait-img absolute inset-0 w-full h-[115%] object-cover object-top top-[-15%]"
+            className="portrait-img absolute inset-0 w-full h-[115%] object-cover object-top md:top-[-15%] top-0"
           />
           <div className="absolute inset-0 bg-primary/70" />
         </div>
@@ -110,11 +110,11 @@ export function MeetHelen() {
 
           {/* Portrait column */}
           <div className="md:col-span-5 relative">
-            <div className="relative overflow-hidden h-[70vh]">
+            <div className="relative overflow-hidden h-auto md:h-[70vh]">
               <img
                 src={helenPortrait2}
                 alt="Helen Clayton"
-                className="portrait-img-2 absolute inset-0 w-full h-[115%] object-cover top-[-10%]"
+                className="portrait-img-2 block w-full h-auto object-contain md:absolute md:inset-0 md:w-full md:h-[115%] md:object-cover md:top-[-10%]"
               />
               <div className="absolute inset-0 border-8 border-secondary/40 pointer-events-none" />
             </div>
