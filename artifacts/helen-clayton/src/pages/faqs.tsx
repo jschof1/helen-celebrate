@@ -100,21 +100,24 @@ export function Faqs() {
   return (
     <div ref={container} className="bg-background min-h-screen overflow-hidden">
 
-      {/* HERO — image background */}
-      <section className="relative min-h-[50vh] flex flex-col justify-end overflow-hidden">
+      {/* HERO — Helen flagged that "& Answers" was hard to see against the
+          background, and the previous Q glyph looked like a 2 (now solved
+          globally with the Cormorant Garamond serif). The hero overlay now
+          has a stronger dark wash so both lines of the heading stay legible. */}
+      <section className="relative min-h-[55vh] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 parallax-wrap">
           <img
             src={weddingOutdoor2}
             alt="Wedding"
             className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-foreground/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-foreground/75 to-foreground/45" />
         </div>
         <div className="relative z-10 px-6 md:px-16 pb-16 pt-40">
-          <h1 className="page-title text-7xl md:text-9xl font-serif font-black italic text-white leading-none">
+          <h1 className="page-title text-7xl md:text-9xl font-serif font-bold italic text-white leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             Questions
           </h1>
-          <p className="page-title text-4xl md:text-6xl font-serif italic text-secondary mt-2">
+          <p className="page-title text-4xl md:text-6xl font-serif italic text-secondary mt-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
             &amp; Answers
           </p>
         </div>
@@ -138,7 +141,7 @@ export function Faqs() {
                     className="w-full p-6 md:p-8 flex justify-between items-center text-left hover:bg-secondary/10 transition-colors group"
                     data-testid={`faq-button-${i}`}
                   >
-                    <span className="text-2xl font-serif text-foreground pr-8 group-hover:text-primary transition-colors">{faq.q}</span>
+                    <span className="text-2xl font-serif text-primary pr-8 transition-colors">{faq.q}</span>
                     <Plus
                       className={`w-8 h-8 text-primary shrink-0 transition-transform duration-500 ${isOpen ? 'rotate-45' : ''}`}
                     />

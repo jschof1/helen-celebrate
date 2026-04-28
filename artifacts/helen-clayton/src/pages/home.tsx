@@ -4,14 +4,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "wouter";
 import weddingOutdoor1 from "@assets/stock_images/wedding_outdoor_1.jpg";
-import weddingOutdoor2 from "@assets/stock_images/wedding_outdoor_2.jpg";
 import memorialGarden1 from "@assets/stock_images/memorial_garden_1.jpg";
 import memorialGarden2 from "@assets/stock_images/memorial_garden_2.jpg";
-import weddingCouple2 from "@assets/stock_images/wedding_couple_2.jpg";
 import funeralFlowers from "@assets/stock_images/funeral_flowers.jpg";
 import vowRenewal from "@assets/stock_images/vow_renewal.jpg";
 import coastSunset from "@assets/stock_images/coast_sunset.jpg";
-import weddingRings from "@assets/stock_images/wedding_rings.jpg";
 import serviceFuneralPlanning from "@assets/stock_images/service_funeral_planning.jpg";
 import serviceEulogyWriting from "@assets/stock_images/service_eulogy_writing.jpg";
 import serviceScatteringAshes from "@assets/stock_images/service_scattering_ashes.jpg";
@@ -19,9 +16,10 @@ import serviceMemorial from "@assets/stock_images/service_memorial.jpg";
 import serviceWedding from "@assets/stock_images/service_wedding.jpg";
 import serviceVowRenewal from "@assets/stock_images/service_vow_renewal.jpg";
 import crematoriumImg from "@assets/stock_images/crematorium.jpg";
-import helenPortrait1 from "@assets/stock_images/helen_portrait_1.jpg";
-import helenPortrait2 from "@assets/stock_images/helen_portrait_2.jpg";
-import weddingVideoSrc from "@assets/generated_videos/wedding_ceremony.mp4";
+import helenPortrait3 from "@assets/stock_images/helen_portrait_3.jpg";
+import helenOutdoorWedding from "@assets/stock_images/helen_outdoor_wedding.jpg";
+import tashAdamRingExchange from "@assets/stock_images/tash_adam_ring_exchange.jpg";
+import tashAdamHandsRings from "@assets/stock_images/tash_adam_hands_rings.jpg";
 import peacefulGardenSrc from "@assets/generated_videos/peaceful_garden.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,16 +52,16 @@ export function Home() {
       ease: "power2.out"
     }, "-=0.4");
 
-    // Parallax on hero video
-    gsap.to(".hero-video-wrap", {
-      scrollTrigger: {
-        trigger: ".hero-section",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-      y: "30%",
-      ease: "none"
+    // Subtle Ken Burns zoom on the hero photo collage
+    gsap.utils.toArray<HTMLElement>(".hero-collage-img").forEach((img, i) => {
+      gsap.to(img, {
+        scale: 1.08,
+        duration: 12,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: i * 1.2,
+      });
     });
 
     // Services image reveal
@@ -76,7 +74,6 @@ export function Home() {
         delay: i * 0.08,
         ease: "power3.out"
       });
-      // Image zoom on scroll
       const img = card.querySelector(".service-img");
       if (img) {
         gsap.to(img, {
@@ -111,7 +108,7 @@ export function Home() {
           end: "bottom top",
           scrub: 1.5,
         },
-        y: keepHeads ? "-6%" : "-20%",
+        y: keepHeads ? "-4%" : "-20%",
         ease: "none"
       });
     });
@@ -155,20 +152,32 @@ export function Home() {
   return (
     <div ref={container} className="bg-background w-full overflow-hidden">
 
-      {/* HERO — Full-viewport video */}
+      {/* HERO — Helen's own photos in a Ken-Burns collage. The previous AI-generated
+          wedding video was misleading because the celebrant on screen wasn't Helen. */}
       <section className="hero-section relative min-h-[100dvh] flex flex-col justify-center overflow-hidden">
-        {/* Video background */}
-        <div className="hero-video-wrap absolute inset-0 w-full h-full">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            src={weddingVideoSrc}
-            data-testid="video-hero"
-          />
-          <div className="absolute inset-0 bg-primary/75" />
+        <div className="absolute inset-0 grid grid-cols-3 gap-0">
+          <div className="relative overflow-hidden hidden md:block">
+            <img
+              src={helenOutdoorWedding}
+              alt="Helen at a wedding ceremony"
+              className="hero-collage-img absolute inset-0 w-full h-full object-cover object-top"
+            />
+          </div>
+          <div className="relative overflow-hidden col-span-3 md:col-span-1">
+            <img
+              src={tashAdamRingExchange}
+              alt="Bride and groom exchanging rings during a Helen Clayton ceremony"
+              className="hero-collage-img absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative overflow-hidden hidden md:block">
+            <img
+              src={tashAdamHandsRings}
+              alt="Bride and groom's hands resting together with rings"
+              className="hero-collage-img absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-primary/72" />
         </div>
 
         {/* Decorative circles */}
@@ -177,7 +186,7 @@ export function Home() {
 
         {/* Text content */}
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-24 text-primary-foreground">
-          <h1 className="text-[13vw] md:text-[10vw] leading-none font-serif font-black italic tracking-tighter mb-4">
+          <h1 className="text-[13vw] md:text-[10vw] leading-none font-serif font-bold italic tracking-tight mb-4">
             {splitText("Helen Clayton")}
           </h1>
           <h2 className="text-4xl md:text-7xl font-serif text-secondary italic mb-8 hero-sub">
@@ -208,11 +217,11 @@ export function Home() {
         <div className="strip-track flex gap-4 w-[200%]" style={{ whiteSpace: 'nowrap' }}>
           {[
             memorialGarden2,
-            weddingCouple2,
+            tashAdamRingExchange,
             funeralFlowers,
             vowRenewal,
-            helenPortrait1,
-            helenPortrait2,
+            helenOutdoorWedding,
+            tashAdamHandsRings,
             coastSunset,
             memorialGarden1,
           ].map((src, i) => (
@@ -226,12 +235,13 @@ export function Home() {
       {/* HELPING YOU — Two-panel section */}
       <section className="py-28 px-6 md:px-12 relative z-20" style={{ background: 'linear-gradient(180deg, hsl(38 30% 94%) 0%, hsl(35 40% 88%) 50%, hsl(38 30% 94%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl md:text-7xl font-serif font-bold italic text-foreground mb-16 text-center">
+          <h2 className="text-5xl md:text-7xl font-serif font-bold italic text-primary mb-16 text-center">
             Helping You Create a Ceremony Full of Meaning and Heart
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="group relative overflow-hidden">
-              <img src={weddingOutdoor1} alt="Wedding ceremony" className="w-full h-[50vh] object-cover" />
+              {/* Top-anchored object position so the bride & groom's heads aren't cropped. */}
+              <img src={tashAdamRingExchange} alt="Bride and groom exchanging rings with Helen" className="w-full h-[50vh] object-cover object-top" />
               <div className="absolute inset-0 bg-foreground/50 group-hover:bg-primary/60 transition-colors duration-500" />
               <div className="absolute inset-0 flex items-end p-10">
                 <p className="text-xl md:text-2xl text-white font-serif italic leading-relaxed">
@@ -252,22 +262,23 @@ export function Home() {
         </div>
       </section>
 
-      {/* SERVICES — Image-heavy grid */}
+      {/* SERVICES — Image-heavy grid. Each tile now deep-links into the right
+          section of /funerals or /weddings via a hash anchor. */}
       <section className="py-28 px-6 md:px-12 relative z-20" style={{ background: 'linear-gradient(135deg, hsl(40 20% 98%) 0%, hsl(35 35% 92%) 40%, hsl(0 40% 96%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-6xl md:text-9xl font-serif font-bold italic text-foreground mb-4">
+          <h2 className="text-6xl md:text-9xl font-serif font-bold italic text-primary mb-4">
             My Services
           </h2>
           <p className="text-xl text-muted-foreground mb-20 max-w-lg">Individually crafted, inclusive and creative ceremonies</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-card-border">
             {[
-              { title: "Funeral Planning", link: "/funerals", img: serviceFuneralPlanning, tag: "With compassion & dignity" },
-              { title: "Eulogy Writing", link: "/funerals", img: serviceEulogyWriting, tag: "Every life, a story" },
-              { title: "Scattering of Ashes", link: "/funerals", img: serviceScatteringAshes, tag: "A quiet moment of peace" },
-              { title: "Memorial Services", link: "/funerals", img: serviceMemorial, tag: "Gathering to remember" },
-              { title: "Wedding Ceremonies", link: "/weddings", img: serviceWedding, tag: "Your love, your day" },
-              { title: "Vow Renewal", link: "/weddings", img: serviceVowRenewal, tag: "Celebrating the journey" }
+              { title: "Funeral Planning", link: "/funerals#funerals", img: serviceFuneralPlanning, tag: "With compassion & dignity" },
+              { title: "Eulogy Writing", link: "/funerals#funerals", img: serviceEulogyWriting, tag: "Every life, a story" },
+              { title: "Scattering of Ashes", link: "/funerals#ashes", img: serviceScatteringAshes, tag: "A quiet moment of peace" },
+              { title: "Memorial Services", link: "/funerals#memorials", img: serviceMemorial, tag: "Gathering to remember" },
+              { title: "Wedding Ceremonies", link: "/weddings#weddings", img: serviceWedding, tag: "Your love, your day" },
+              { title: "Vow Renewal", link: "/weddings#vow-renewals", img: serviceVowRenewal, tag: "Celebrating the journey" }
             ].map((service, i) => (
               <Link
                 key={i}
@@ -295,12 +306,19 @@ export function Home() {
       {/* FULL-BLEED SPLIT — Helen portrait + Why Choose Me */}
       <section className="fullbleed-section relative min-h-[80vh] overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 h-full min-h-[80vh]">
-          {/* Left — Helen portrait */}
-          <div className="parallax-wrap relative overflow-hidden min-h-[50vh] md:min-h-0">
+          {/* Left — Helen portrait. Helen's high-resolution professional photo,
+              positioned so her face stays in frame while scrolling. */}
+          <div className="parallax-wrap relative overflow-hidden min-h-[60vh] md:min-h-0 bg-foreground">
+            {/*
+              Extra height (120%) + negative top offset (-10%) creates a 10% buffer
+              above and below the container. The GSAP parallax only moves this image
+              up by ~4-5% of container height, so Helen's face never reaches the
+              clipped edge regardless of scroll position.
+            */}
             <img
-              src={helenPortrait1}
+              src={helenPortrait3}
               alt="Helen Clayton, Family Celebrant"
-              className="parallax-img parallax-img--keep-heads absolute inset-x-0 md:top-0 w-full h-auto max-h-none md:h-[118%] object-contain md:object-cover md:object-top"
+              className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-[-10%] w-full h-[120%] object-cover object-[center_20%]"
             />
             <div className="absolute inset-0 bg-primary/10" />
           </div>
@@ -313,7 +331,7 @@ export function Home() {
               Choosing a celebrant is a particularly personal decision, and it is important that you feel comfortable, supported, and truly listened to.
             </p>
             <p className="text-xl mb-6 opacity-80 leading-relaxed">
-              I will bring a calm, caring approach to your ceremony, taking the time to understand what matters most to you. With a background in teaching and cancer care, I have spent many years supporting people through important moments in their lives. I have always done so with compassion, patience, and understanding.
+              I will bring a calm, caring approach to your ceremony, while taking the time to understand what matters most to you. With a background in teaching and cancer care, I have spent many years supporting people through important moments in their lives, which I have always done with compassion, patience, and understanding.
             </p>
             <p className="text-xl mb-6 opacity-80 leading-relaxed">
               Every ceremony I create is written from scratch, each one is bespoke. I thoughtfully tailor it to reflect your story, your wishes, and the people at the heart of it. There aren't any templates, just me and you discovering and creating something meaningful, personal, and true to you.
@@ -343,18 +361,19 @@ export function Home() {
             <div className="absolute inset-0 bg-secondary translate-x-5 translate-y-5 -rotate-2 z-10" />
           </div>
 
-          {/* Image panel — Helen outdoors */}
+          {/* Image panel — Helen outdoors at a wedding */}
           <div className="md:w-1/2 relative overflow-hidden">
             <img
-              src={helenPortrait2}
-              alt="Helen Clayton outdoors"
+              src={helenOutdoorWedding}
+              alt="Helen Clayton at a wedding"
               className="w-full h-auto object-contain md:h-full md:object-cover md:object-top"
             />
           </div>
         </div>
       </section>
 
-      {/* GARDEN VIDEO SECTION */}
+      {/* GARDEN VIDEO SECTION — kept (no celebrant on camera, so it's purely scenic
+          and stays consistent with Helen's brand). */}
       <section className="relative h-[60vh] overflow-hidden flex items-center justify-center">
         <video
           className="absolute inset-0 w-full h-full object-cover"

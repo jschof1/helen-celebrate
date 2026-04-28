@@ -2,11 +2,12 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import weddingOutdoor1 from "@assets/stock_images/wedding_outdoor_1.jpg";
 import memorialGarden1 from "@assets/stock_images/memorial_garden_1.jpg";
 import coastSunset from "@assets/stock_images/coast_sunset.jpg";
-import vowRenewal from "@assets/stock_images/vow_renewal.jpg";
 import weddingRings from "@assets/stock_images/wedding_rings.jpg";
+import crematorium from "@assets/stock_images/crematorium.jpg";
+import liliesCandlesMemorial from "@assets/stock_images/lilies_candles_memorial.jpg";
+import tashAdamRingExchange from "@assets/stock_images/tash_adam_ring_exchange.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,20 +33,9 @@ export function Costs() {
       });
     });
 
-    // Price number count-up
-    gsap.utils.toArray(".price-num").forEach((num: any) => {
-      const targetVal = parseInt(num.getAttribute("data-val") || "0", 10);
-      gsap.fromTo(num,
-        { textContent: 0 },
-        {
-          scrollTrigger: { trigger: num, start: "top 90%" },
-          textContent: targetVal,
-          duration: 2.5,
-          ease: "power2.out",
-          snap: { textContent: 1 },
-        }
-      );
-    });
+    // Helen asked for the price figure to just be there, rather than the
+    // number scrolling/counting up. So we no longer animate .price-num —
+    // the number is rendered statically in the markup below.
 
     // Parallax images
     gsap.utils.toArray(".parallax-img").forEach((img: any) => {
@@ -70,15 +60,15 @@ export function Costs() {
       <section className="relative min-h-[55vh] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 parallax-wrap">
           <img
-            src={weddingOutdoor1}
-            alt="Wedding"
-            className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+            src={tashAdamRingExchange}
+            alt="Bride and groom exchanging rings"
+            className="parallax-img absolute inset-0 w-full h-[130%] object-cover object-top top-[-15%]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
         <div className="relative z-10 px-6 md:px-16 pb-16 pt-40">
-          <h1 className="text-7xl md:text-9xl font-serif text-foreground page-title mb-4">Costs</h1>
-          <p className="text-2xl md:text-3xl font-serif italic text-secondary max-w-4xl border-l-4 border-primary pl-6">
+          <h1 className="text-7xl md:text-9xl font-serif text-primary page-title mb-4">Costs</h1>
+          <p className="text-2xl md:text-3xl font-serif italic text-foreground max-w-4xl border-l-4 border-primary pl-6">
             Because every story is different, every ceremony I create is designed to be personal, meaningful, and true to you.
           </p>
         </div>
@@ -88,19 +78,21 @@ export function Costs() {
       <section className="py-20 px-6 md:px-16" style={{ background: 'linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(35 35% 92%) 50%, hsl(38 30% 94%) 100%)' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 border border-card-border">
 
-          {/* Funerals */}
-          <div className="cost-card relative overflow-hidden">
+          {/* Funerals — Helen asked for the funeral background to be the
+              crematorium rather than the previous garden image. */}
+          <div className="cost-card relative overflow-hidden bg-card">
             <div className="absolute inset-0 parallax-wrap">
               <img
-                src={memorialGarden1}
-                alt="Memorial"
-                className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%] opacity-20"
+                src={crematorium}
+                alt="Crematorium"
+                className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%] opacity-25"
               />
+              <div className="absolute inset-0 bg-card/60" />
             </div>
             <div className="relative z-10 p-10 md:p-14 border-r border-card-border">
-              <h2 className="text-4xl font-serif text-foreground mb-4">Funerals</h2>
-              <div className="text-8xl font-black text-primary mb-4 font-serif leading-none">
-                £<span className="price-num" data-val="250">0</span>
+              <h2 className="text-4xl font-serif text-primary mb-4">Funerals</h2>
+              <div className="text-8xl font-bold text-primary mb-4 font-serif leading-none">
+                £250
               </div>
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 At such an important and often difficult time, my role is to support you with care, understanding, and gentle guidance. I will take the time to listen, ensuring the ceremony truly reflects your loved one and feels right for you and your family.
@@ -130,12 +122,12 @@ export function Costs() {
           {/* Weddings */}
           <div className="cost-card bg-primary text-primary-foreground relative overflow-hidden">
             <div className="absolute inset-0">
-              <img src={weddingOutdoor1} alt="Wedding" className="w-full h-full object-cover opacity-20" />
+              <img src={tashAdamRingExchange} alt="Wedding ring exchange" className="w-full h-full object-cover object-top opacity-25" />
             </div>
             <div className="relative z-10 p-10 md:p-14">
               <h2 className="text-4xl font-serif mb-4">Weddings</h2>
-              <div className="text-8xl font-black text-secondary mb-4 font-serif leading-none">
-                £<span className="price-num" data-val="650">0</span>
+              <div className="text-8xl font-bold text-secondary mb-4 font-serif leading-none">
+                £650
               </div>
               <p className="opacity-80 mb-8 leading-relaxed">
                 My fee for a wedding ceremony is £650, which includes all the time, care, and attention needed to create a truly personal and meaningful celebration.
@@ -163,14 +155,14 @@ export function Costs() {
           </div>
 
           {/* Memorials */}
-          <div className="cost-card relative overflow-hidden border-t border-card-border">
+          <div className="cost-card relative overflow-hidden border-t border-card-border bg-card">
             <div className="absolute inset-0">
-              <img src={vowRenewal} alt="Vow renewal" className="w-full h-full object-cover opacity-15" />
+              <img src={liliesCandlesMemorial} alt="White lilies and memorial candles" className="w-full h-full object-cover opacity-20" />
             </div>
             <div className="relative z-10 p-10 md:p-14 border-r border-card-border">
-              <h2 className="text-4xl font-serif text-foreground mb-4">Memorial Services</h2>
+              <h2 className="text-4xl font-serif text-primary mb-4">Memorial Services</h2>
               <div className="text-6xl font-bold text-foreground mb-6 font-serif">
-                Prices from £<span className="price-num text-primary" data-val="200">0</span>
+                Prices from <span className="text-primary">£200</span>
               </div>
               <p className="text-muted-foreground leading-relaxed">Tailored to your specific requirements and location. Get in touch to discuss your needs.</p>
             </div>
@@ -184,7 +176,7 @@ export function Costs() {
             <div className="relative z-10 p-10 md:p-14">
               <h2 className="text-4xl font-serif text-secondary mb-4">Scattering or Internment of Ashes</h2>
               <div className="text-6xl font-bold mb-6 font-serif">
-                From £<span className="price-num text-secondary" data-val="80">0</span>
+                From <span className="text-secondary">£80</span>
               </div>
               <p className="opacity-80 leading-relaxed">A meaningful moment of remembrance, wherever feels right for you and your loved ones.</p>
             </div>

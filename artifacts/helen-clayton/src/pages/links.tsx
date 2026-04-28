@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
 import weddingRings from "@assets/stock_images/wedding_rings.jpg";
-import memorialGarden1 from "@assets/stock_images/memorial_garden_1.jpg";
+import butterfliesSunsetHands from "@assets/stock_images/butterflies_sunset_hands.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,19 +64,24 @@ export function Links() {
   return (
     <div ref={container} className="bg-background min-h-screen overflow-hidden">
 
-      {/* HERO */}
-      <section className="relative min-h-[45vh] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-2">
-          <div className="parallax-wrap overflow-hidden relative">
-            <img src={weddingRings} alt="Wedding" className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]" />
+      {/* HERO — Helen asked for the previous photo to be replaced with
+          something like cupped hands releasing butterflies at sunset. */}
+      <section className="relative min-h-[55vh] flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-3">
+          <div className="parallax-wrap overflow-hidden relative md:col-span-2">
+            <img
+              src={butterfliesSunsetHands}
+              alt="Cupped hands releasing butterflies at sunset"
+              className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+            />
           </div>
-          <div className="parallax-wrap overflow-hidden relative">
-            <img src={memorialGarden1} alt="Memorial" className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]" />
+          <div className="parallax-wrap overflow-hidden relative hidden md:block">
+            <img src={weddingRings} alt="Wedding rings" className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/15" />
         </div>
         <div className="relative z-10 px-6 md:px-16 pb-16 pt-40">
-          <h1 className="page-title text-6xl md:text-9xl font-serif font-black italic text-white leading-none">
+          <h1 className="page-title text-6xl md:text-9xl font-serif font-bold italic text-white leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             Helpful Links
           </h1>
           <p className="text-xl text-secondary mt-4 font-serif italic max-w-3xl">

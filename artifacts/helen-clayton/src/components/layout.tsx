@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
 import { ApcCertifiedBadge } from "@/components/apc-certified-badge";
+import siteLogo from "@assets/branding/hc_celebrancy_logo.png";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,17 +45,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-[100dvh] flex flex-col bg-background text-foreground font-sans">
-      <nav className="fixed top-0 left-0 right-0 z-50 mix-blend-difference p-6 flex justify-between items-center text-white">
-        <Link href="/" data-testid="nav-logo" className="mix-blend-normal">
-          <img src="/logo.png" alt="Helen Clayton Celebrancy" className="h-14 w-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]" />
-        </Link>
-        
-        <button 
-          onClick={() => setIsMenuOpen(true)}
-          className="p-2 relative z-50 text-white"
-          data-testid="button-open-menu"
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 flex justify-between items-center pointer-events-none">
+        {/* Brand mark — perfect circle, logo centred and scaled to fit (avoids
+            w-auto + baseline gap that made the mark look “sitting on top”). */}
+        <Link
+          href="/"
+          data-testid="nav-logo"
+          className="pointer-events-auto flex size-20 sm:size-24 md:size-28 shrink-0 items-center justify-center overflow-hidden rounded-full bg-background/90 ring-1 ring-secondary/30 shadow-[0_6px_20px_-6px_rgba(0,0,0,0.25)] backdrop-blur-sm hover:bg-background transition-colors"
         >
-          <Menu className="w-8 h-8" />
+          <img
+            src={siteLogo}
+            alt="Helen Clayton Celebrancy"
+            className="block h-full w-full min-h-0 min-w-0 object-cover object-center"
+            draggable={false}
+          />
+        </Link>
+
+        <button
+          onClick={() => setIsMenuOpen(true)}
+          className="pointer-events-auto p-3 relative z-50 text-white bg-primary/85 hover:bg-primary rounded-full shadow-lg backdrop-blur-sm transition-colors"
+          data-testid="button-open-menu"
+          aria-label="Open menu"
+        >
+          <Menu className="w-7 h-7" />
         </button>
       </nav>
 
@@ -62,7 +75,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <div 
         ref={menuRef}
         className="fixed inset-0 z-[60] text-primary-foreground flex flex-col items-center justify-center"
-        style={{ background: 'linear-gradient(135deg, hsl(0 68% 35%) 0%, hsl(350 55% 25%) 60%, hsl(0 50% 20%) 100%)', clipPath: "circle(0% at calc(100% - 3rem) 3rem)" }}
+        style={{ background: 'linear-gradient(135deg, hsl(0 70% 27%) 0%, hsl(350 55% 20%) 60%, hsl(0 55% 16%) 100%)', clipPath: "circle(0% at calc(100% - 3rem) 3rem)" }}
       >
         <button 
           onClick={() => setIsMenuOpen(false)}
@@ -147,7 +160,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </p>
               <h2
                 id="apc-trust-heading"
-                className="font-serif text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl italic text-foreground leading-[1.12] mb-5"
+                className="font-serif text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl italic text-primary leading-[1.12] mb-5"
               >
                 APC Certified Celebrant
               </h2>

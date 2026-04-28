@@ -1,0 +1,244 @@
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+:root {
+  --primary: hsl(0, 70%, 27%);
+  --primary-soft: hsl(0, 70%, 27%, 0.08);
+  --secondary: hsl(35, 40%, 50%);
+  --foreground: hsl(220, 20%, 14%);
+  --muted: hsl(220, 10%, 45%);
+  --bg: #fafaf7;
+  --card: #ffffff;
+  --rule: hsl(35, 30%, 80%);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--foreground);
+  font-family: -apple-system, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  font-size: 11.5pt;
+  line-height: 1.55;
+}
+
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24mm 18mm;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: 32pt;
+  font-style: italic;
+  margin: 0 0 4pt;
+  text-align: left;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 64pt;
+  height: 3px;
+  background: var(--primary);
+  margin: 14pt 0 0;
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 22pt;
+  font-style: italic;
+  margin: 36pt 0 10pt;
+  padding-top: 12pt;
+  border-top: 1px solid var(--rule);
+  page-break-before: auto;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 15pt;
+  margin: 24pt 0 8pt;
+  color: var(--primary);
+  page-break-after: avoid;
+}
+
+p {
+  margin: 0 0 10pt;
+}
+
+p:has(+ img), p:has(+ p > img) {
+  page-break-after: avoid;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 28pt 0;
+}
+
+/* Helen's quoted text */
+blockquote {
+  border-left: 3px solid var(--primary);
+  background: var(--primary-soft);
+  margin: 12pt 0 14pt;
+  padding: 10pt 14pt;
+  color: var(--foreground);
+  font-style: italic;
+  font-family: "Georgia", "Cormorant Garamond", serif;
+  border-radius: 2px;
+  page-break-inside: avoid;
+}
+
+blockquote p {
+  margin: 0 0 6pt;
+}
+
+blockquote p:last-child {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0 0 12pt;
+  padding-left: 22pt;
+}
+
+li {
+  margin: 0 0 5pt;
+}
+
+li > p {
+  margin: 0 0 4pt;
+}
+
+strong {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 14pt auto 6pt;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  page-break-inside: avoid;
+  page-break-before: avoid;
+}
+
+img + em,
+p > em:only-child {
+  display: block;
+  text-align: center;
+  font-size: 9.5pt;
+  color: var(--muted);
+  margin: 0 0 18pt;
+}
+
+/* Caption-style alt text fallback (pandoc renders alt as figcaption sometimes) */
+figure {
+  margin: 14pt 0 18pt;
+  page-break-inside: avoid;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 9.5pt;
+  color: var(--muted);
+  margin-top: 6pt;
+}
+
+/* Final summary table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12pt 0 18pt;
+  font-size: 10pt;
+  page-break-inside: auto;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tr {
+  page-break-inside: avoid;
+}
+
+th {
+  text-align: left;
+  background: var(--primary);
+  color: white;
+  padding: 7pt 9pt;
+  font-weight: 600;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 11pt;
+}
+
+th:last-child {
+  text-align: center;
+  width: 40pt;
+}
+
+td {
+  padding: 6pt 9pt;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+td:last-child {
+  text-align: center;
+  font-size: 12pt;
+}
+
+/* The dash before "— Jack" */
+p:last-of-type {
+  margin-top: 24pt;
+}
+
+/* Avoid orphan headings */
+section, h2 + p, h3 + p {
+  orphans: 3;
+  widows: 3;
+}
+
+/* Hide pandoc's auto-injected title block — we have our own H1 in the markdown */
+header#title-block-header,
+.title,
+.subtitle {
+  display: none !important;
+}
+
+/* Header strip on first page */
+body::before {
+  content: "Helen Clayton Celebrancy";
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--secondary);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 6pt;
+}

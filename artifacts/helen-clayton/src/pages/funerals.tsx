@@ -3,10 +3,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import funeralFlowers from "@assets/stock_images/funeral_flowers.jpg";
-import memorialGarden1 from "@assets/stock_images/memorial_garden_1.jpg";
 import memorialGarden2 from "@assets/stock_images/memorial_garden_2.jpg";
 import coastSunset from "@assets/stock_images/coast_sunset.jpg";
 import crematorium from "@assets/stock_images/crematorium.jpg";
+import liliesCandlesMemorial from "@assets/stock_images/lilies_candles_memorial.jpg";
 import peacefulGardenSrc from "@assets/generated_videos/peaceful_garden.mp4";
 import dorsetCoastSrc from "@assets/generated_videos/dorset_coast.mp4";
 
@@ -108,7 +108,7 @@ export function Funerals() {
       </div>
 
       {/* FUNERALS SECTION */}
-      <section className="py-24 px-6 md:px-16 relative">
+      <section id="funerals" className="py-24 px-6 md:px-16 relative scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="section-rule h-px w-full bg-secondary mb-16" />
           <div className="grid md:grid-cols-12 gap-16 items-center">
@@ -123,7 +123,7 @@ export function Funerals() {
               </div>
             </div>
             <div className="md:col-span-7">
-              <h2 className="text-5xl md:text-6xl font-serif italic text-secondary mb-8 content-fade">
+              <h2 className="text-5xl md:text-6xl font-serif italic text-primary mb-8 content-fade">
                 Funerals &amp;<br/>Celebration of Life
               </h2>
               <p className="text-2xl leading-relaxed opacity-90 mb-6 content-fade">
@@ -144,7 +144,7 @@ export function Funerals() {
       </section>
 
       {/* MEMORIAL SERVICES SECTION */}
-      <section className="py-24 px-6 md:px-16 relative" style={{ background: 'linear-gradient(180deg, hsl(220 20% 8%) 0%, hsl(0 30% 14%) 50%, hsl(220 20% 8%) 100%)' }}>
+      <section id="memorials" className="py-24 px-6 md:px-16 relative scroll-mt-20" style={{ background: 'linear-gradient(180deg, hsl(220 20% 8%) 0%, hsl(0 30% 14%) 50%, hsl(220 20% 8%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="section-rule h-px w-full bg-secondary mb-16" />
           <div className="grid md:grid-cols-12 gap-16 items-center">
@@ -166,11 +166,13 @@ export function Funerals() {
               </p>
             </div>
             <div className="md:col-span-5 order-1 md:order-2 content-fade">
-              <div className="parallax-wrap relative h-[60vh] overflow-hidden">
+              {/* Helen specifically asked for a portrait lilies + candles photo
+                  to accompany Memorial Services. */}
+              <div className="parallax-wrap relative h-[70vh] overflow-hidden">
                 <img
-                  src={memorialGarden1}
-                  alt="Memorial garden"
-                  className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+                  src={liliesCandlesMemorial}
+                  alt="White lilies and softly burning memorial candles"
+                  className="parallax-img absolute inset-0 w-full h-[120%] object-cover object-center top-[-10%]"
                 />
               </div>
             </div>
@@ -179,7 +181,7 @@ export function Funerals() {
       </section>
 
       {/* SCATTERING OF ASHES — coastal video */}
-      <section className="relative">
+      <section id="ashes" className="relative scroll-mt-20">
         <div className="relative h-[50vh] overflow-hidden parallax-wrap">
           <video
             className="absolute inset-0 w-full h-[120%] object-cover"

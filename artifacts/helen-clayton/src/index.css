@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -87,17 +87,17 @@
   --sidebar: 40 20% 98%;
   --sidebar-foreground: 220 20% 8%;
   --sidebar-border: 35 40% 62%;
-  --sidebar-primary: 0 68% 35%;
+  --sidebar-primary: 0 70% 27%;
   --sidebar-primary-foreground: 40 20% 98%;
-  --sidebar-accent: 350 55% 28%;
+  --sidebar-accent: 350 55% 22%;
   --sidebar-accent-foreground: 40 20% 98%;
-  --sidebar-ring: 0 68% 35%;
+  --sidebar-ring: 0 70% 27%;
   
   --popover: 40 20% 98%;
   --popover-foreground: 220 20% 8%;
   --popover-border: 35 40% 62%;
   
-  --primary: 0 68% 35%;
+  --primary: 0 70% 27%;
   --primary-foreground: 40 20% 98%;
   
   --secondary: 35 40% 62%;
@@ -106,23 +106,23 @@
   --muted: 36 28% 91%;
   --muted-foreground: 220 10% 40%;
   
-  --accent: 350 55% 28%;
+  --accent: 350 55% 22%;
   --accent-foreground: 40 20% 98%;
   
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   
   --input: 35 40% 62%;
-  --ring: 0 68% 35%;
+  --ring: 0 70% 27%;
   
-  --chart-1: 0 68% 35%;
+  --chart-1: 0 70% 27%;
   --chart-2: 35 40% 62%;
-  --chart-3: 350 55% 28%;
+  --chart-3: 350 55% 22%;
   --chart-4: 220 20% 8%;
   --chart-5: 40 20% 98%;
 
   --app-font-sans: 'DM Sans', sans-serif;
-  --app-font-serif: 'Playfair Display', serif;
+  --app-font-serif: 'Cormorant Garamond', 'EB Garamond', serif;
   --app-font-mono: Menlo, monospace;
   
   --radius: .5rem;
@@ -180,17 +180,17 @@
   --sidebar: 220 20% 8%;
   --sidebar-foreground: 40 20% 98%;
   --sidebar-border: 35 40% 62%;
-  --sidebar-primary: 0 68% 35%;
+  --sidebar-primary: 0 70% 27%;
   --sidebar-primary-foreground: 40 20% 98%;
-  --sidebar-accent: 350 55% 28%;
+  --sidebar-accent: 350 55% 22%;
   --sidebar-accent-foreground: 40 20% 98%;
-  --sidebar-ring: 0 68% 35%;
+  --sidebar-ring: 0 70% 27%;
   
   --popover: 220 20% 8%;
   --popover-foreground: 40 20% 98%;
   --popover-border: 35 40% 62%;
   
-  --primary: 0 68% 35%;
+  --primary: 0 70% 27%;
   --primary-foreground: 40 20% 98%;
   
   --secondary: 35 40% 62%;
@@ -199,18 +199,18 @@
   --muted: 220 20% 16%;
   --muted-foreground: 220 10% 70%;
   
-  --accent: 350 55% 28%;
+  --accent: 350 55% 22%;
   --accent-foreground: 40 20% 98%;
   
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   
   --input: 35 40% 62%;
-  --ring: 0 68% 35%;
+  --ring: 0 70% 27%;
   
-  --chart-1: 0 68% 35%;
+  --chart-1: 0 70% 27%;
   --chart-2: 35 40% 62%;
-  --chart-3: 350 55% 28%;
+  --chart-3: 350 55% 22%;
   --chart-4: 220 20% 8%;
   --chart-5: 40 20% 98%;
 

@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import helenPortrait1 from "@assets/stock_images/helen_portrait_1.jpg";
-import helenPortrait2 from "@assets/stock_images/helen_portrait_2.jpg";
+import helenPortrait3 from "@assets/stock_images/helen_portrait_3.jpg";
+import helenOutdoorWedding from "@assets/stock_images/helen_outdoor_wedding.jpg";
 import memorialGarden2 from "@assets/stock_images/memorial_garden_2.jpg";
 import coastSunset from "@assets/stock_images/coast_sunset.jpg";
 import { ApcCertifiedBadge } from "@/components/apc-certified-badge";
@@ -84,18 +84,19 @@ export function MeetHelen() {
   return (
     <div ref={container} className="bg-card min-h-screen overflow-hidden">
 
-      {/* PAGE HEADER — Title over full image */}
-      <section className="portrait-section relative min-h-[80vh] flex flex-col justify-center overflow-hidden pt-32">
+      {/* PAGE HEADER — Helen's actual portrait, with a softer red overlay so
+          her face is clearly visible and not hidden behind the wash. */}
+      <section className="portrait-section relative min-h-[80vh] flex flex-col justify-end overflow-hidden pt-32">
         <div className="absolute inset-0">
           <img
-            src={helenPortrait1}
-            alt="Helen Clayton Celebrant"
-            className="portrait-img absolute inset-0 w-full h-[115%] object-cover object-top md:top-[-15%] top-0"
+            src={helenPortrait3}
+            alt="Helen Clayton, Family Celebrant"
+            className="portrait-img absolute inset-0 w-full h-full object-cover object-[center_15%]"
           />
-          <div className="absolute inset-0 bg-primary/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-foreground/15" />
         </div>
-        <div className="relative z-10 px-6 md:px-16 text-center">
-          <h1 className="page-title text-[10vw] md:text-[8vw] font-serif font-black italic text-white leading-none mb-4">
+        <div className="relative z-10 px-6 md:px-16 pb-16 md:pb-24 text-center">
+          <h1 className="page-title text-[10vw] md:text-[8vw] font-serif font-bold italic text-white leading-none mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             Meet Helen
           </h1>
           <p className="text-2xl md:text-4xl font-serif italic text-secondary max-w-2xl mx-auto">
@@ -112,9 +113,9 @@ export function MeetHelen() {
           <div className="md:col-span-5 relative">
             <div className="relative overflow-hidden h-auto md:h-[70vh]">
               <img
-                src={helenPortrait2}
-                alt="Helen Clayton"
-                className="portrait-img-2 block w-full h-auto object-contain md:absolute md:inset-0 md:w-full md:h-[115%] md:object-cover md:top-[-10%]"
+                src={helenOutdoorWedding}
+                alt="Helen Clayton at a wedding"
+                className="portrait-img-2 block w-full h-auto object-contain md:absolute md:inset-0 md:w-full md:h-[110%] md:object-cover md:object-top md:top-[-5%]"
               />
               <div className="absolute inset-0 border-8 border-secondary/40 pointer-events-none" />
             </div>
@@ -135,21 +136,21 @@ export function MeetHelen() {
               </p>
             </div>
             <div className="content-block">
-              <h2 className="text-4xl font-serif text-foreground mb-4 border-b-2 border-secondary pb-4 inline-block">Proud Mum &amp; Family at Heart</h2>
+              <h2 className="text-4xl font-serif text-primary mb-4 border-b-2 border-secondary pb-4 inline-block">Proud Mum &amp; Family at Heart</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 My name is Helen Clayton and I am a proud Mum of three grown-up children. I truly value family, connection, and the moments that bring us together. I have spent my life caring for and supporting others, both at home and in my professional career.
               </p>
             </div>
 
             <div className="content-block">
-              <h2 className="text-4xl font-serif text-foreground mb-4 border-b-2 border-secondary pb-4 inline-block">Empathy is my Foundation</h2>
+              <h2 className="text-4xl font-serif text-primary mb-4 border-b-2 border-secondary pb-4 inline-block">Empathy is my Foundation</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 With my background in teaching and years of experience working within cancer care, I understand the importance of empathy, compassion, and truly listening to people's stories.
               </p>
             </div>
 
             <div className="content-block">
-              <h2 className="text-4xl font-serif text-foreground mb-4 border-b-2 border-secondary pb-4 inline-block">A Natural Next Step</h2>
+              <h2 className="text-4xl font-serif text-primary mb-4 border-b-2 border-secondary pb-4 inline-block">A Natural Next Step</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Becoming a celebrant felt like the next natural step. I am passionate about helping people mark life's most meaningful moments, whether that is creating the perfect wedding celebration or a heartfelt and personal send-off for a loved one.
               </p>
@@ -182,7 +183,7 @@ export function MeetHelen() {
             alt="Beautiful garden"
             className="bg-accent-img w-full h-full object-cover"
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsl(0 68% 35% / 0.12) 0%, hsl(35 40% 62% / 0.25) 50%, hsl(40 20% 98% / 0.88) 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsl(0 70% 27% / 0.12) 0%, hsl(35 40% 62% / 0.25) 50%, hsl(40 20% 98% / 0.88) 100%)' }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16">
           <h2 className="text-5xl md:text-7xl font-serif italic text-primary mb-16 content-block">What I bring to every ceremony</h2>

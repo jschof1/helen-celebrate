@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useToast } from "@/hooks/use-toast";
-import helenPortrait1 from "@assets/stock_images/helen_portrait_1.jpg";
-import weddingCouple1 from "@assets/stock_images/wedding_couple_1.jpg";
+import helenPortrait3 from "@assets/stock_images/helen_portrait_3.jpg";
+import tashAdamRingExchange from "@assets/stock_images/tash_adam_ring_exchange.jpg";
 import dorsetCoastSrc from "@assets/generated_videos/dorset_coast.mp4";
 import { ApcCertifiedBadge } from "@/components/apc-certified-badge";
 
@@ -52,7 +52,7 @@ export function Contact() {
   return (
     <div ref={container} className="bg-background min-h-screen overflow-hidden">
 
-      {/* VIDEO HEADER */}
+      {/* VIDEO HEADER — Helen asked us to remove the full stop after "Let's Talk" */}
       <section className="relative h-[45vh] overflow-hidden flex items-end">
         <video
           className="absolute inset-0 w-full h-full object-cover"
@@ -62,8 +62,8 @@ export function Contact() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-primary/40 to-transparent" />
         <div className="relative z-10 px-6 md:px-16 pb-16 pt-32">
-          <h1 className="text-7xl md:text-[9vw] font-serif font-black italic text-foreground leading-none">
-            Let's Talk.
+          <h1 className="text-7xl md:text-[9vw] font-serif font-bold italic text-primary leading-none">
+            Let's Talk
           </h1>
         </div>
       </section>
@@ -73,16 +73,18 @@ export function Contact() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
-            {/* Left — portrait + details */}
+            {/* Left — portrait + details. Helen asked for her photo to be
+                clearly visible (the previous gradient was covering most of
+                her face), so the overlay only sits at the very bottom edge
+                where the portrait meets the dark info panel. */}
             <div className="contact-left relative overflow-hidden">
-              {/* Portrait image fills top */}
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-[28rem] md:h-[34rem] overflow-hidden bg-foreground">
                 <img
-                  src={helenPortrait1}
+                  src={helenPortrait3}
                   alt="Helen Clayton"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_18%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-foreground/90" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-foreground" />
               </div>
 
               {/* Contact details over dark bg */}
@@ -119,18 +121,18 @@ export function Contact() {
                   </div>
                 </div>
 
-                {/* Small second image */}
-                <div className="mt-4 overflow-hidden h-40">
-                  <img src={weddingCouple1} alt="Ceremony" className="w-full h-full object-cover opacity-70" />
+                {/* Small second image — a real ceremony photo, displayed at full
+                    opacity so it's clearly visible (Helen flagged that the previous
+                    image was washed out and hard to see). */}
+                <div className="mt-4 overflow-hidden h-48">
+                  <img src={tashAdamRingExchange} alt="Bride and groom exchanging rings" className="w-full h-full object-cover object-top" />
                 </div>
               </div>
             </div>
 
-            {/* Right — form */}
+            {/* Right — form. The decorative offset boxes on the corners have
+                been removed at Helen's request ("can this be removed please"). */}
             <div className="contact-right bg-card p-10 md:p-16 relative">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary opacity-20" />
-              <div className="absolute bottom-0 left-0 w-24 h-24 border-4 border-primary opacity-30" />
-
               <h2 className="text-4xl font-serif italic text-primary mb-10 relative z-10">Send a message</h2>
 
               <form onSubmit={handleSubmit} className="relative z-10 space-y-6">

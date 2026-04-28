@@ -1,4 +1,5 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { useEffect } from "react";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,9 +17,38 @@ import { Contact } from "./pages/contact";
 
 const queryClient = new QueryClient();
 
+// Helen explicitly asked: every "Contact Me" / "Get to Know Helen" / nav link
+// must land at the TOP of the target page, not part-way down. When the URL has
+// a hash (#section) we instead scroll to that specific section so the My Services
+// tiles can deep-link into the right part of /funerals or /weddings.
+function ScrollManager() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && hash.length > 1) {
+      const id = hash.slice(1);
+      // Wait one frame so the new page has mounted before we look for the target
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "auto", block: "start" });
+        } else {
+          window.scrollTo({ top: 0, behavior: "auto" });
+        }
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [location]);
+
+  return null;
+}
+
 function Router() {
   return (
     <Layout>
+      <ScrollManager />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/meet-helen" component={MeetHelen} />

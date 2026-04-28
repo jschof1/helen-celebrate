@@ -5,10 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import weddingOutdoor1 from "@assets/stock_images/wedding_outdoor_1.jpg";
 import weddingOutdoor2 from "@assets/stock_images/wedding_outdoor_2.jpg";
 import weddingCouple1 from "@assets/stock_images/wedding_couple_1.jpg";
-import weddingCouple2 from "@assets/stock_images/wedding_couple_2.jpg";
 import weddingRings from "@assets/stock_images/wedding_rings.jpg";
-import vowRenewal from "@assets/stock_images/vow_renewal.jpg";
-import weddingVideoSrc from "@assets/generated_videos/wedding_ceremony.mp4";
+import serviceVowRenewal from "@assets/stock_images/service_vow_renewal.jpg";
+import tashAdamRingExchange from "@assets/stock_images/tash_adam_ring_exchange.jpg";
+import tashAdamHandsRings from "@assets/stock_images/tash_adam_hands_rings.jpg";
+import helenOutdoorWedding from "@assets/stock_images/helen_outdoor_wedding.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,15 +88,19 @@ export function Weddings() {
   return (
     <div ref={container} className="min-h-screen overflow-hidden bg-card">
 
-      {/* HERO — Video background */}
+      {/* HERO — Helen's own ceremony photographs (Tash & Adam). The previous AI
+          wedding video showed a celebrant who wasn't Helen, so it has been
+          replaced with real photos from a ceremony Helen led. */}
       <section className="relative min-h-[100vh] flex flex-col justify-center overflow-hidden">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay muted loop playsInline
-          src={weddingVideoSrc}
-          data-testid="video-weddings"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-card" />
+        <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-3">
+          <div className="relative overflow-hidden hidden md:block">
+            <img src={tashAdamHandsRings} alt="Bride and groom's hands resting together with rings" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div className="relative overflow-hidden md:col-span-2">
+            <img src={tashAdamRingExchange} alt="Bride and groom exchanging rings during a Helen Clayton ceremony" className="absolute inset-0 w-full h-full object-cover object-top" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-card" />
+        </div>
 
         {/* Decorative SVG motif */}
         <div className="absolute top-20 right-[-8vw] opacity-10 pointer-events-none svg-motif">
@@ -107,11 +112,11 @@ export function Weddings() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 text-center pt-32 pb-20">
-          <h1 className="text-[12vw] md:text-[9vw] leading-none font-serif font-black italic text-white page-title mb-2">
+          <h1 className="text-[12vw] md:text-[9vw] leading-none font-serif font-bold italic text-white page-title mb-2">
             Your Love Story...
           </h1>
           <h2 className="text-5xl md:text-8xl font-serif italic text-secondary page-title">
-            Your Ceremony.
+            Your Ceremony
           </h2>
         </div>
       </section>
@@ -119,7 +124,7 @@ export function Weddings() {
       {/* WEDDING PHOTOGRAPHY STRIP */}
       <section className="photo-strip overflow-hidden bg-foreground py-0">
         <div className="photo-strip-inner flex gap-0 w-[160%]">
-          {[weddingOutdoor1, weddingCouple1, weddingOutdoor2, weddingCouple2, weddingRings, weddingOutdoor1].map((src, i) => (
+          {[tashAdamRingExchange, weddingOutdoor1, tashAdamHandsRings, weddingCouple1, weddingRings, helenOutdoorWedding].map((src, i) => (
             <div key={i} className="h-[40vw] w-[30vw] shrink-0 overflow-hidden">
               <img src={src} alt="Wedding" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
@@ -128,12 +133,12 @@ export function Weddings() {
       </section>
 
       {/* WEDDINGS section */}
-      <section className="py-24 px-6 md:px-16" style={{ background: 'linear-gradient(180deg, hsl(38 30% 94%) 0%, hsl(35 40% 88%) 50%, hsl(40 20% 96%) 100%)' }}>
+      <section id="weddings" className="py-24 px-6 md:px-16 scroll-mt-20" style={{ background: 'linear-gradient(180deg, hsl(38 30% 94%) 0%, hsl(35 40% 88%) 50%, hsl(40 20% 96%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-16 items-center">
             <div className="md:col-span-7">
               <div className="wedding-card bg-white p-12 md:p-20 shadow-xl border-t-8 border-primary">
-                <h3 className="text-5xl md:text-6xl font-serif text-foreground mb-8">Weddings</h3>
+                <h3 className="text-5xl md:text-6xl font-serif text-primary mb-8">Weddings</h3>
                 <p className="text-2xl leading-relaxed text-muted-foreground mb-6">
                   I truly believe every couple deserves a wedding ceremony that reflects their own personal journey and the love they share.
                 </p>
@@ -157,9 +162,9 @@ export function Weddings() {
             <div className="md:col-span-5 wedding-card">
               <div className="parallax-wrap relative h-[65vh] overflow-hidden">
                 <img
-                  src={weddingOutdoor1}
-                  alt="Wedding ceremony"
-                  className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+                  src={tashAdamRingExchange}
+                  alt="Bride and groom exchanging rings"
+                  className="parallax-img parallax-img--keep-heads absolute inset-0 w-full h-full object-cover object-top"
                 />
               </div>
             </div>
@@ -167,16 +172,19 @@ export function Weddings() {
         </div>
       </section>
 
-      {/* VOW RENEWALS section */}
-      <section className="py-24 px-6 md:px-16 text-primary-foreground" style={{ background: 'linear-gradient(135deg, hsl(0 68% 35%) 0%, hsl(350 55% 28%) 60%, hsl(0 60% 25%) 100%)' }}>
+      {/* VOW RENEWALS section — Helen pointed at the Vow Renewal tile photo
+          from the home page's My Services grid (an older couple walking
+          hand-in-hand through a rose garden) and asked us to use that one
+          here instead of the previous vow-renewal image. */}
+      <section id="vow-renewals" className="py-24 px-6 md:px-16 text-primary-foreground scroll-mt-20" style={{ background: 'linear-gradient(135deg, hsl(0 70% 27%) 0%, hsl(350 55% 22%) 60%, hsl(0 55% 18%) 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-16 items-center">
             <div className="md:col-span-5 wedding-card">
               <div className="parallax-wrap relative h-[65vh] overflow-hidden">
                 <img
-                  src={vowRenewal}
-                  alt="Vow renewal"
-                  className="parallax-img absolute inset-0 w-full h-[130%] object-cover top-[-15%]"
+                  src={serviceVowRenewal}
+                  alt="An older couple walking hand-in-hand through a rose garden at sunset"
+                  className="parallax-img parallax-img--keep-heads absolute inset-0 w-full h-[110%] object-cover object-top top-[-5%]"
                 />
               </div>
             </div>
@@ -238,9 +246,9 @@ export function Weddings() {
             <div className="wedding-card">
               <div className="parallax-wrap relative h-[70vh] overflow-hidden">
                 <img
-                  src={weddingCouple2}
-                  alt="Couple"
-                  className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-0 w-full h-[118%] object-cover object-top"
+                  src={helenOutdoorWedding}
+                  alt="Helen Clayton at a wedding"
+                  className="parallax-img parallax-img--keep-heads absolute inset-x-0 top-0 w-full h-[110%] object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-primary/20" />
                 <div className="absolute bottom-8 left-8 right-8 text-white">
